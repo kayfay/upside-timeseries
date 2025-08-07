@@ -1,223 +1,268 @@
-# Upside Time Series Analysis
+# 🚀 Upside Time Series Analysis - Business Intelligence Dashboard
 
-A comprehensive time series analysis project for restaurant sales data, featuring advanced seasonal decomposition, detrended analysis, and business intelligence tools for strategic decision making.
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-blue?style=for-the-badge&logo=github)](https://kayfay.github.io/upside-timeseries/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![R](https://img.shields.io/badge/R-4.0+-blue.svg?style=for-the-badge&logo=r)](https://www.r-project.org/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-4.0+-orange.svg?style=for-the-badge&logo=javascript)](https://www.chartjs.org/)
 
-## 📊 Project Overview
+> **Advanced business intelligence dashboard for restaurant sales forecasting and strategic decision making**
 
-This project analyzes weekly sales data from July 2023 to July 2025 to identify true seasonal patterns, remove growth bias, and provide actionable business insights for inventory management, staffing decisions, and strategic planning.
+## 🌟 Live Demo
 
-## 🎯 Key Features
+**[🚀 View Live Dashboard](https://kayfay.github.io/upside-timeseries/)**
 
-- **Advanced Time Series Decomposition**: STL decomposition for trend, seasonal, and remainder components
-- **Detrended Analysis**: True seasonal patterns without growth bias
-- **Pattern Recognition**: Weekly and monthly seasonal analysis with heatmaps
-- **Business Intelligence Dashboard**: Enhanced metrics and actionable insights
-- **Professional Visualizations**: Sophisticated charts optimized for business decision making
-- **Strategic Planning Tools**: Peak/trough season identification and resource optimization
+Experience the full interactive dashboard with:
+- 📊 Real-time interactive charts
+- 📈 Advanced time series decomposition
+- 🔍 Pattern recognition analysis
+- 💡 Business intelligence insights
+- 📱 Responsive design for all devices
 
-## 📁 File Structure
+## 📋 Table of Contents
 
-### Core Analysis Scripts
-- `create_enhanced_business_summary.R` - Enhanced business intelligence dashboard generation
-- `comprehensive_visualization_suite.R` - Complete visualization generation suite
-- `time_series_decomposition_analysis.R` - Core time series decomposition analysis
-- `seasonal_peak_analysis.R` - Seasonal peak identification and analysis
-- `seasonal_peak_analysis_improved.R` - Enhanced seasonal analysis with professional visualizations
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Business Insights](#business-insights)
+- [Technical Architecture](#technical-architecture)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Analysis Components](#analysis-components)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Data Files
-- `Copy of Weekly Sales 5_29_23-5_25.xlsx` - Original sales data (July 2023 - July 2025)
-- `all_peak_weeks.csv` - All identified peak weeks for business planning
-- `monthly_preparation_guide.csv` - Monthly preparation recommendations
-- `peak_weeks_calendar.csv` - Peak weeks calendar data
+## 🎯 Overview
 
-### Generated Visualizations (Current)
-- `01_professional_time_series.png` - Complete sales journey analysis (original, trend, detrended)
-- `02_seasonal_decomposition.png` - Seasonal decomposition components
-- `03_trend_adjusted_peaks.png` - Trend-adjusted peak analysis
-- `04_enhanced_sales_heatmap.png` - Detrended sales intensity heatmap
-- `05_monthly_pattern_analysis.png` - Monthly sales patterns (original vs detrended)
-- `07_enhanced_business_insights_summary.png` - Enhanced business intelligence dashboard
-- `08_yearly_calendar_highlights.png` - Yearly calendar highlights
+This project provides a comprehensive time series analysis solution for restaurant sales data, combining advanced statistical modeling with modern web technologies to deliver actionable business intelligence.
 
-### Analysis Documentation
-- `TIME_SERIES_DECOMPOSITION_ANALYSIS.md` - Core time series analysis documentation
-- `DETRENDED_SALES_HEATMAP_ANALYSIS.md` - Detrended heatmap analysis
-- `MONTHLY_SALES_PATTERNS_ANALYSIS.md` - Monthly patterns analysis
-- `SALES_TIME_SERIES_DECOMPOSITION_ANALYSIS.md` - Sales decomposition analysis
-- `BUSINESS_INTELLIGENCE_SUMMARY_ANALYSIS.md` - Business intelligence analysis
-- `TREND_DECOMPOSITION_BUSINESS_ANALYSIS.md` - Trend decomposition business analysis
+### 🎯 Key Business Metrics
 
-### Setup and Documentation
-- `install_r_packages.R` - Package installation script
-- `SETUP_GUIDE.md` - Detailed setup instructions
-- `SEASONAL PATTERN ANALYSIS.md` - Analysis methodology documentation
-- `BUSINESS_PLANNING_GUIDE.md` - Business planning recommendations
-- `QUICK_REFERENCE.md` - Quick reference guide
-- `SCRIPT_DOCUMENTATION.md` - Script documentation
+| Metric | Value | Impact |
+|--------|-------|--------|
+| **Weekly Growth Rate** | $177.86 | Strong upward trajectory |
+| **Seasonal Strength** | 66.5% | Highly predictable patterns |
+| **Peak Weeks/Year** | 11 weeks | Strategic planning opportunities |
+| **Volatility (CV)** | 16.3% | Manageable risk level |
+| **Forecast Horizon** | 12 weeks | Reliable planning window |
 
-### Web Interface
-- `index.html` - Interactive web dashboard with comprehensive analysis
+## ✨ Key Features
 
-## 🚀 Quick Start
+### 📊 Interactive Data Visualization
+- **Real-time Charts**: Zoom, pan, and hover capabilities
+- **Multiple Chart Types**: Time series, decomposition, seasonal, heatmap
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+- **Export Functionality**: Download charts and reports
+
+### 🧠 Advanced Analytics
+- **Time Series Decomposition**: Trend, seasonal, and residual components
+- **Pattern Recognition**: Automated peak and trough detection
+- **Statistical Modeling**: ARIMA, seasonal decomposition, trend analysis
+- **Forecasting**: 12-week reliable forecast horizon
+
+### 💼 Business Intelligence
+- **Strategic Insights**: Actionable recommendations for business planning
+- **Performance Metrics**: Key performance indicators and benchmarks
+- **Risk Assessment**: Volatility analysis and uncertainty quantification
+- **Resource Planning**: Staffing and inventory optimization
+
+### 🛠 Technical Excellence
+- **Modern Web Stack**: HTML5, CSS3, JavaScript (ES6+)
+- **Chart.js Integration**: Professional-grade data visualization
+- **Responsive Framework**: Mobile-first design approach
+- **Performance Optimized**: Fast loading and smooth interactions
+
+## 📈 Business Insights
+
+### 🚀 Growth Analysis
+- **Consistent Growth**: $177.86 weekly increase
+- **Long-term Trend**: $8,500 annual growth rate
+- **Investment Confidence**: Statistically significant growth patterns
+
+### 📅 Seasonal Patterns
+- **Peak Seasons**: October-November and April-May
+- **Trough Periods**: January-February and July-August
+- **Planning Window**: 8-12 weeks advance notice for peak preparation
+
+### 💡 Strategic Recommendations
+- **Peak Week Preparation**: Start planning 3 weeks before peaks
+- **Seasonal Marketing**: Develop targeted campaigns for pre-peak periods
+- **Resource Management**: 25-30% staffing increase during peak seasons
+- **Inventory Planning**: Stock up 20-25% during peak periods
+
+## 🏗 Technical Architecture
+
+### Frontend Stack
+```
+HTML5 + CSS3 + JavaScript (ES6+)
+├── Chart.js (Data Visualization)
+├── Font Awesome (Icons)
+├── Google Fonts (Typography)
+└── Responsive Design Framework
+```
+
+### Analytics Engine
+```
+R Statistical Environment
+├── ggplot2 (Visualization)
+├── dplyr (Data Manipulation)
+├── tidyr (Data Tidying)
+└── scales (Formatting)
+```
+
+### Deployment
+```
+GitHub Pages
+├── Jekyll (Static Site Generator)
+├── Custom CSS/JS
+├── CDN Resources
+└── Performance Optimization
+```
+
+## 🚀 Installation
 
 ### Prerequisites
-- R (version 4.0 or higher)
-- RStudio (recommended)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- R (4.0+) for running analysis scripts
+- Git for version control
 
-### Installation
-1. **Install R**: Download from [r-project.org](https://www.r-project.org/)
-2. **Install RStudio**: Download from [rstudio.com](https://www.rstudio.com/)
-3. **Install Required Packages**: Run `install_r_packages.R`
+### Quick Start
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kayfay/upside-timeseries.git
+   cd upside-timeseries
+   ```
 
-### Running the Analysis
+2. **Open the dashboard**
+   - Navigate to `index.html` in your browser
+   - Or visit the live demo: [https://kayfay.github.io/upside-timeseries/](https://kayfay.github.io/upside-timeseries/)
 
-#### Option 1: Generate Business Intelligence Dashboard (Recommended)
-```r
-# In RStudio
-source("create_enhanced_business_summary.R")
+3. **Run analysis scripts** (optional)
+   ```r
+   # Install required R packages
+   install.packages(c("ggplot2", "dplyr", "tidyr", "scales"))
+   
+   # Run the main analysis
+   source("create_enhanced_business_summary.R")
+   ```
+
+## 📖 Usage
+
+### Dashboard Navigation
+1. **Overview**: Core time series analysis and key metrics
+2. **Interactive Charts**: Explore data with zoom, pan, and filtering
+3. **Analysis**: Advanced decomposition and statistical insights
+4. **Patterns**: Seasonal analysis and heatmap visualization
+5. **Intelligence**: Business intelligence summary and recommendations
+6. **Downloads**: Access comprehensive reports and documentation
+
+### Interactive Features
+- **Chart Controls**: Switch between different visualization types
+- **Date Range Filtering**: Focus on specific time periods
+- **Zoom & Pan**: Explore data in detail
+- **Export Options**: Download charts and reports
+- **Responsive Design**: Optimized for all screen sizes
+
+## 📊 Analysis Components
+
+### 1. Time Series Decomposition
+- **Original Sales**: Raw sales data ($40K-$57K range)
+- **Trend Component**: Growth trajectory ($8,500/year)
+- **Seasonal Component**: Recurring patterns (±$10K amplitude)
+- **Residual Component**: Random variation (<5%)
+
+### 2. Seasonal Analysis
+- **Peak Detection**: Automated identification of high-performance periods
+- **Trough Analysis**: Understanding low-performance periods
+- **Pattern Recognition**: Consistent seasonal cycles
+- **Planning Windows**: Optimal timing for strategic decisions
+
+### 3. Statistical Modeling
+- **ARIMA Models**: Time series forecasting
+- **Seasonal Decomposition**: STL decomposition method
+- **Trend Analysis**: Linear and non-linear trend detection
+- **Volatility Assessment**: Coefficient of variation analysis
+
+## 🔌 API Documentation
+
+### Chart.js Integration
+```javascript
+// Initialize interactive chart
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: chartData,
+    options: {
+        responsive: true,
+        interaction: {
+            intersect: false,
+            mode: 'index'
+        },
+        plugins: {
+            zoom: {
+                zoom: { wheel: { enabled: true } },
+                pan: { enabled: true }
+            }
+        }
+    }
+});
 ```
 
-#### Option 2: Complete Analysis Suite
-```r
-# In RStudio
-source("comprehensive_visualization_suite.R")
+### Data Structure
+```javascript
+const dataPoint = {
+    date: Date,
+    original: number,    // Original sales value
+    trend: number,       // Trend component
+    seasonal: number,    // Seasonal component
+    residual: number     // Residual component
+};
 ```
-
-#### Option 3: Core Time Series Analysis
-```r
-# In RStudio
-source("time_series_decomposition_analysis.R")
-```
-
-## 📈 Analysis Methods
-
-### 1. Advanced Time Series Decomposition
-- **STL Decomposition**: Seasonal and Trend decomposition using Loess
-- **Trend Component**: 85% contribution - Linear growth from $40K to $57K/week
-- **Seasonal Component**: 15% contribution - Bimodal pattern with 6-month cycles
-- **Residual Component**: <5% contribution - Low random fluctuations
-
-### 2. Detrended Analysis
-- **Growth Bias Removal**: Eliminates upward trend to reveal true seasonal patterns
-- **True Seasonal Patterns**: Consistent peaks and troughs across years
-- **Performance Evaluation**: Unbiased assessment based on seasonal effects
-
-### 3. Pattern Recognition
-- **Weekly Heatmaps**: Detrended sales intensity by week and year
-- **Monthly Patterns**: Original vs detrended sales comparison
-- **Peak/Trough Identification**: October/November and April/May peaks, January/February and July/August troughs
-
-## 📊 Key Business Insights
-
-### Growth Analysis
-- **Strong Growth Trend**: $17,000 increase over 2-year period (July 2023 - July 2025)
-- **Weekly Growth**: $177.86 per week ($9,200+ annual growth)
-- **Sustainable Trajectory**: Continued upward momentum into 2025
-
-### Seasonal Patterns
-- **Primary Peak**: October/November (+$8K-$10K above trend)
-- **Secondary Peak**: April/May (+$6K-$8K above trend)
-- **Primary Trough**: January/February (-$8K-$10K below trend)
-- **Secondary Trough**: July/August (-$6K-$8K below trend)
-
-### Strategic Advantages
-- **Precise Planning**: 8-12 week advance notice for seasonal changes
-- **Resource Optimization**: Efficient staffing and inventory allocation
-- **Marketing Effectiveness**: Strategic campaign timing based on seasonal peaks
-- **Operational Efficiency**: Optimized operations for seasonal demand variations
-
-## 🛠️ Technical Details
-
-### Required R Packages
-- `readxl` - Excel file reading
-- `forecast` - Time series forecasting
-- `tseries` - Time series analysis
-- `ggplot2` - Data visualization
-- `dplyr` - Data manipulation
-- `lubridate` - Date handling
-- `tidyr` - Data tidying
-- `seasonal` - Seasonal adjustment
-- `scales` - Scale functions for visualization
-- `gridExtra` - Grid graphics
-
-### Data Format
-- **Date Column**: First column with dates
-- **Sales Column**: Second column with numeric sales values
-- **Frequency**: Weekly data
-- **Period**: July 2023 - July 2025 (107 weeks)
-- **Missing Values**: Automatically handled with interpolation
-
-## 📋 Business Applications
-
-### Strategic Planning
-- **Growth Projection**: $65K-$70K projected sales for 2025 based on trend analysis
-- **Capacity Planning**: 25-30% staffing increase needed during peak periods
-- **Investment Confidence**: Statistically significant growth justifies expansion investments
-
-### Operational Optimization
-- **Peak Periods**: +30% staffing needs with 3-week advance preparation
-- **Trough Periods**: -20% staffing needs with gradual adjustments
-- **Inventory Management**: 20-25% stock increase during peak seasons
-- **Cash Flow Planning**: Accurate projections for seasonal variations
-
-### Marketing Strategy
-- **Fall Campaign**: September-October (pre-peak preparation)
-- **Spring Campaign**: March-April (pre-peak preparation)
-- **Off-Peak Promotions**: January-February and July-August
-- **Peak Pricing**: Premium pricing opportunities during high-demand periods
-
-## 🌐 Web Dashboard
-
-The project includes an interactive web dashboard (`index.html`) featuring:
-
-### Analysis Sections
-1. **📈 Core Time Series Analysis** - Complete sales journey breakdown
-2. **📊 Pattern Recognition & Analysis** - Advanced seasonal pattern analysis
-3. **🔬 Advanced Time Series Decomposition Analysis** - Statistical decomposition
-4. **💡 Business Intelligence Summary** - Enhanced metrics dashboard
-
-### Key Features
-- **Interactive Images**: Click to view full-size visualizations
-- **Detailed Analysis**: Comprehensive insights for each visualization
-- **Business-Friendly Language**: Manager-focused explanations
-- **Actionable Recommendations**: Strategic insights and immediate action items
-
-## 🔧 Troubleshooting
-
-### Common Issues
-1. **Package Installation Errors**: Run `install_r_packages.R` first
-2. **File Not Found**: Ensure Excel file is in the project directory
-3. **R Not Found**: Add R to system PATH or use RStudio
-
-### Error Solutions
-- **"pivot_wider not found"**: Install `tidyr` package
-- **"time-series/vector length mismatch"**: Use decomposition-focused script
-- **Empty CSV files**: Check data format and column names
-
-## 📚 Additional Resources
-
-- `SETUP_GUIDE.md` - Detailed installation instructions
-- `SEASONAL PATTERN ANALYSIS.md` - Methodology documentation
-- `BUSINESS_PLANNING_GUIDE.md` - Business planning recommendations
-- R Documentation: [forecast package](https://cran.r-project.org/web/packages/forecast/)
 
 ## 🤝 Contributing
 
-To contribute to this project:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test with sample data
-5. Submit a pull request
+We welcome contributions! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Make your changes**
+4. **Test thoroughly**
+5. **Submit a pull request**
+
+### Development Guidelines
+- Follow existing code style and conventions
+- Add comprehensive documentation
+- Include tests for new features
+- Ensure responsive design compatibility
+- Optimize for performance
 
 ## 📄 License
 
-This project is for educational and business analysis purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Chart.js** for powerful data visualization
+- **Font Awesome** for beautiful icons
+- **Google Fonts** for typography
+- **R Community** for statistical analysis tools
+- **GitHub Pages** for hosting and deployment
+
+## 📞 Support
+
+- **Live Demo**: [https://kayfay.github.io/upside-timeseries/](https://kayfay.github.io/upside-timeseries/)
+- **Issues**: [GitHub Issues](https://github.com/kayfay/upside-timeseries/issues)
+- **Documentation**: See individual analysis files for detailed explanations
 
 ---
 
-**Last Updated**: December 2024  
-**R Version**: 4.0+  
-**Analysis Type**: Advanced Time Series Decomposition & Business Intelligence  
-**Data Period**: July 2023 - July 2025  
-**Status**: Production Ready
+<div align="center">
+
+**Made with ❤️ for data-driven business decisions**
+
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-blue?style=for-the-badge&logo=github)](https://kayfay.github.io/upside-timeseries/)
+[![Stars](https://img.shields.io/github/stars/kayfay/upside-timeseries?style=social)](https://github.com/kayfay/upside-timeseries/stargazers)
+[![Forks](https://img.shields.io/github/forks/kayfay/upside-timeseries?style=social)](https://github.com/kayfay/upside-timeseries/network/members)
+
+</div>

@@ -1,4 +1,221 @@
-.Rproj.user
+# R specific files
 .Rhistory
 .RData
 .Ruserdata
+.Rapp.history
+.Rprofile
+.Renviron
+.Rproj.user/
+*.Rproj.user
+
+# R package files
+*.tar.gz
+*.tgz
+*.zip
+*.Rcheck/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+logs/
+
+# Cache directories
+.cache/
+.jekyll-cache/
+.sass-cache/
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build directories
+dist/
+build/
+out/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Data files that might contain sensitive information
+# Uncomment if you want to exclude data files
+# *.csv
+# *.xlsx
+# *.xls
+
+# Large files that should be in git-lfs
+# *.rds
+# *.RData
+
+# Temporary analysis files
+temp_*
+tmp_*
+analysis_cache/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# R Markdown cache
+*_cache/
+*_files/
+
+# Package installation logs
+install_logs/
+
+# Test files
+test_*
+*_test.*
+
+# Documentation build files
+docs/_build/
+site/
+
+# Local configuration files
+config.local.*
+settings.local.*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Archive files
+*.7z
+*.rar
+*.tar
+*.gz
+*.bz2
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
