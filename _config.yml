@@ -1,0 +1,48 @@
+# Jekyll configuration for GitHub Pages
+# This ensures the site works properly with GitHub Pages
+
+# Site settings
+title: "Upside Time Series Analysis Dashboard"
+description: "Advanced time series analysis and business intelligence for restaurant sales data"
+author: "Data Science Team"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .gitignore
+  - *.R
+  - *.rds
+  - *.csv
+  - *.xlsx
+  - archive_old_graphs/
+  - .Rproj.user/
+  - .github/
+
+# Include only necessary files
+include:
+  - "*.html"
+  - "*.css"
+  - "*.js"
+  - "*.png"
+  - "*.jpg"
+  - "*.jpeg"
+  - "*.gif"
+  - "*.svg"
+  - "*.ico"
+  - "*.pdf"
+
+# Collections
+collections:
+  data:
+    output: false
+    permalink: /data/:path/
+
+# Plugins (none needed for static site)
+plugins: []
+
+# Theme (none - using custom HTML)
+theme: null
