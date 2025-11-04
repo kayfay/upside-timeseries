@@ -7,29 +7,27 @@
     
     <!-- Modern CSS Framework -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Chart.js for Interactive Charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary-color: #7c3aed;
-            --accent-color: #f59e0b;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --error-color: #ef4444;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --text-light: #9ca3af;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f9fafb;
-            --bg-tertiary: #f3f4f6;
-            --border-color: #e5e7eb;
+            /* Editorial color palette - earth tones, warm, sophisticated */
+            --primary-color: #8B4513;
+            --primary-dark: #654321;
+            --secondary-color: #6B8E6B;
+            --accent-color: #C97D60;
+            --accent-cool: #7A9CC6;
+            --success-color: #6B8E6B;
+            --warning-color: #C97D60;
+            --error-color: #8B4513;
+            --text-primary: #2C2416;
+            --text-secondary: #5C4E37;
+            --text-light: #9CA3AF;
+            --bg-primary: #FDFBF7;
+            --bg-secondary: #FAF8F3;
+            --bg-tertiary: #F5F3ED;
+            --border-color: #E8E4DC;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -47,10 +45,10 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
             color: var(--text-primary);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-primary);
             min-height: 100vh;
             font-weight: 400;
         }
@@ -58,16 +56,17 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 60px;
         }
 
         /* Header Styles */
         .header {
             background: var(--bg-primary);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
@@ -90,21 +89,22 @@
         }
 
         .toggle-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 0.75rem 1.25rem;
-            border-radius: var(--radius-lg);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            letter-spacing: 0.02em;
         }
 
         .toggle-btn::before {
@@ -132,7 +132,7 @@
         }
 
         .toggle-btn.business-mode {
-            background: linear-gradient(135deg, var(--success-color), var(--accent-color));
+            background: var(--secondary-color);
         }
 
         .toggle-btn.business-mode .toggle-text {
@@ -145,19 +145,17 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            height: 5px;
+            background: var(--primary-color);
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: -0.02em;
         }
 
         .header p {
@@ -178,26 +176,19 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            text-align: center;
+            background: white;
+            padding: 1.75rem;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            text-align: left;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            display: none;
         }
 
         .stat-card:hover::before {
@@ -222,19 +213,19 @@
             font-weight: 500;
         }
 
-        /* Navigation */
+        /* Navigation - Editorial Style */
         .nav-tabs {
             display: flex;
-            background: var(--bg-primary);
-            border-radius: var(--radius-lg);
-            padding: 0.75rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-md);
+            background: transparent;
+            padding: 0;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border-color);
             overflow-x: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            gap: 0.5rem;
+            gap: 0;
             justify-content: space-between;
+            align-items: flex-end;
         }
 
         .nav-tabs::-webkit-scrollbar {
@@ -242,14 +233,10 @@
         }
 
         .nav-tab {
-            flex: 1;
-            min-width: 140px;
-            max-width: 200px;
-            padding: 0.875rem 1.25rem;
-            text-align: center;
+            padding: 1rem 1.5rem;
             background: transparent;
             border: none;
-            border-radius: var(--radius-md);
+            border-bottom: 3px solid transparent;
             color: var(--text-secondary);
             font-weight: 500;
             cursor: pointer;
@@ -259,18 +246,47 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            position: relative;
+            margin-bottom: -2px;
+        }
+
+        .nav-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .nav-tab.active {
-            background: var(--primary-color);
-            color: white;
-            box-shadow: var(--shadow-sm);
+            color: var(--text-primary);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .nav-tab.active::after {
+            transform: scaleX(1);
         }
 
         .nav-tab:hover:not(.active) {
-            background: var(--bg-secondary);
             color: var(--text-primary);
+        }
+
+        .nav-tab:hover:not(.active)::after {
+            transform: scaleX(1);
+            background: var(--accent-color);
+        }
+
+        .nav-tab i {
+            font-size: 0.75rem;
+            opacity: 0.7;
         }
 
         /* Content Sections */
@@ -289,70 +305,73 @@
         }
 
         .section {
-            background: var(--bg-primary);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
+            background: transparent;
+            padding: 0;
+            margin-bottom: 4rem;
+            border: none;
+            box-shadow: none;
         }
 
-        .section h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
+        .section > h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 60%;
+            transform: rotate(-0.5deg);
         }
 
-        .section p {
-            font-size: 1rem;
+        .section > p {
+            font-size: 1.125rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 45%;
+            margin-left: 55%;
+            font-style: italic;
         }
 
-        /* Gallery Grid */
+        /* Editorial Asymmetric Layout */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            display: block;
+            margin-top: 3rem;
+            position: relative;
         }
 
-        /* Special styling for patterns section with single card */
-        #patterns .gallery {
-            grid-template-columns: 1fr;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .section {
+            position: relative;
+            overflow: visible;
         }
 
         /* Dynamic Dashboard Styles */
         .dynamic-dashboard {
-            background: var(--bg-primary);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            border: none;
         }
 
         .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.25rem;
             border-bottom: 2px solid var(--border-color);
         }
 
         .dashboard-header h3 {
+            font-family: 'Playfair Display', serif;
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
 
         .dashboard-controls {
@@ -364,15 +383,16 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            padding: 0.625rem 1.25rem;
             background: var(--primary-color);
             color: white;
             border: none;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            letter-spacing: 0.01em;
         }
 
         .dashboard-btn:hover {
@@ -382,33 +402,43 @@
         }
 
         .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            display: block;
+            margin-bottom: 4rem;
+            position: relative;
         }
 
         .metric-card {
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 0;
+            border: 2px solid var(--border-color);
+            border-left: 8px solid var(--primary-color);
+            text-align: left;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            margin-bottom: 1.5rem;
+            width: 32%;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 1.5%;
+            box-shadow: 4px -4px 0 rgba(139, 69, 19, 0.1);
+            transform: rotate(0.2deg);
+        }
+
+        .metric-card:nth-child(3n+2) {
+            transform: rotate(-0.3deg);
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+        }
+
+        .metric-card:nth-child(3n) {
+            transform: rotate(0.4deg);
+            margin-right: 0;
         }
 
         .metric-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            display: none;
         }
 
         .metric-card:hover::before {
@@ -421,16 +451,19 @@
         }
 
         .metric-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
             color: var(--primary-color);
+            opacity: 0.7;
         }
 
         .metric-value {
-            font-size: 2.5rem;
+            font-family: 'IBM Plex Mono', 'SF Mono', Monaco, monospace;
+            font-size: 2.25rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
         .metric-label {
@@ -473,16 +506,18 @@
         }
 
         .image-card {
-            background: var(--bg-primary);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
+            background: transparent;
+            border-radius: 0;
+            overflow: visible;
+            box-shadow: none;
+            border: none;
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
             text-decoration: none;
             color: inherit;
+            margin-bottom: 5rem;
+            padding: 2rem 0;
         }
 
         .image-card a {
@@ -492,12 +527,13 @@
         }
 
         .image-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
         }
 
         .image-card.featured {
             border: 2px solid var(--accent-color);
+            border-left: 5px solid var(--accent-color);
         }
 
         .image-card.featured::before {
@@ -515,47 +551,85 @@
         }
 
         .image-card img {
-            width: 100%;
+            width: 70%;
             height: auto;
             display: block;
             transition: transform 0.3s ease;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 4rem;
+            margin-top: 2rem;
+            box-shadow: 8px 8px 0 rgba(139, 69, 19, 0.15);
+            transform: rotate(1deg);
+            position: relative;
+            max-width: calc(100% - 20%);
         }
 
         .image-card:hover img {
-            transform: scale(1.02);
+            transform: rotate(0.5deg) scale(1.01);
         }
 
         .image-info {
-            padding: 1.5rem;
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 3rem;
+            position: relative;
+            clear: both;
         }
 
         .image-info h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            max-width: 50%;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-left: 5%;
+            transform: rotate(-0.3deg);
+            clear: both;
         }
 
         .filename {
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-            background: var(--bg-secondary);
-            padding: 0.5rem 0.75rem;
-            border-radius: var(--radius-sm);
-            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-family: 'IBM Plex Mono', 'SF Mono', Monaco, monospace;
+            margin-bottom: 2rem;
+            margin-left: 15%;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+        }
+
+        .image-info p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            max-width: 85%;
+            margin-left: 5%;
+            clear: both;
         }
 
         /* Summary Cards */
         .summary-card {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--primary-color);
             color: white;
-            padding: 1.25rem;
-            border-radius: var(--radius-lg);
-            margin: 1rem 0;
-            box-shadow: var(--shadow-md);
+            padding: 2.5rem 3rem;
+            border-radius: 0;
+            margin: 4rem 0;
+            margin-left: 8%;
+            margin-right: 20%;
+            box-shadow: -12px 12px 0 rgba(139, 69, 19, 0.2);
+            border-left: 8px solid var(--accent-color);
+            transform: rotate(-0.8deg);
+            position: relative;
+            z-index: 1;
+            clear: both;
         }
 
         .summary-card h4 {
@@ -577,24 +651,40 @@
 
         /* Insights Cards */
         .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            display: block;
+            gap: 0;
+            margin-top: 3rem;
+            position: relative;
         }
 
         .insight-card {
-            background: var(--bg-secondary);
-            padding: 1.25rem;
-            border-radius: var(--radius-lg);
-            border-left: 4px solid var(--primary-color);
+            background: white;
+            padding: 2.5rem;
+            border-radius: 0;
+            border: 2px solid var(--border-color);
+            border-left: 8px solid var(--accent-color);
+            margin-bottom: 2rem;
+            width: 55%;
+            margin-left: auto;
+            margin-right: 0;
+            box-shadow: 6px -6px 0 rgba(201, 125, 96, 0.15);
+            transform: rotate(0.5deg);
+        }
+
+        .insight-card:nth-child(even) {
+            margin-left: 0;
+            margin-right: auto;
+            transform: rotate(-0.5deg);
+            border-left: none;
+            border-right: 8px solid var(--secondary-color);
         }
 
         .insight-card h4 {
+            font-family: 'Playfair Display', serif;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -618,38 +708,54 @@
 
         /* Download Section */
         .download-section {
-            background: var(--bg-primary);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
         }
 
         .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            display: block;
+            margin-top: 3rem;
         }
 
         .download-card {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
+            background: white;
+            padding: 2.5rem;
+            border-radius: 0;
+            border: 2px solid var(--border-color);
+            border-left: 8px solid var(--secondary-color);
             transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 2%;
+            box-shadow: 5px 5px 0 rgba(107, 142, 107, 0.15);
+            transform: rotate(-0.3deg);
+        }
+
+        .download-card:nth-child(even) {
+            margin-left: 2%;
+            margin-right: 0;
+            transform: rotate(0.3deg);
+            border-left: none;
+            border-right: 8px solid var(--accent-color);
         }
 
         .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            transform: rotate(0deg) translateY(-3px);
+            box-shadow: 8px 8px 0 rgba(139, 69, 19, 0.2);
         }
 
         .download-card h4 {
+            font-family: 'Playfair Display', serif;
             color: var(--text-primary);
             margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.125rem;
+            font-weight: 700;
         }
 
         .download-card p {
@@ -982,16 +1088,18 @@
             
             .nav-tabs {
                 flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.375rem;
-                padding: 0.5rem;
+                flex-wrap: nowrap;
+                gap: 0;
+                padding: 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
             
             .nav-tab {
-                min-width: calc(50% - 0.375rem);
+                min-width: auto;
                 max-width: none;
-                padding: 0.75rem 1rem;
-                font-size: 0.85rem;
+                padding: 0.875rem 1.25rem;
+                font-size: 0.8rem;
             }
             
             .insights-grid {
@@ -1017,14 +1125,15 @@
             }
             
             .nav-tabs {
-                gap: 0.25rem;
-                padding: 0.375rem;
+                gap: 0;
+                padding: 0;
+                margin-bottom: 2rem;
             }
             
             .nav-tab {
-                min-width: calc(50% - 0.25rem);
-                padding: 0.625rem 0.75rem;
-                font-size: 0.8rem;
+                min-width: auto;
+                padding: 0.75rem 1rem;
+                font-size: 0.75rem;
             }
         }
 
@@ -1210,39 +1319,16 @@
         <div class="header">
             <div class="header-content">
                 <div class="header-main">
-                    <h1><i class="fas fa-chart-line"></i> Time Series Analysis</h1>
-                    <p>Advanced business intelligence dashboard for restaurant sales forecasting and strategic decision making</p>
+                    <h1>Time Series Analysis</h1>
+                    <p></p>
                 </div>
                 <div class="language-toggle">
                     <button id="languageToggle" class="toggle-btn">
-                        <i class="fas fa-users"></i>
                         <span class="toggle-text">Business View</span>
                     </button>
                 </div>
             </div>
             
-            <div class="stats-grid">
-                <div class="stat-card" id="stat-1">
-                    <div class="stat-value">$178</div>
-                    <div class="stat-label">Weekly Growth</div>
-                </div>
-                <div class="stat-card" id="stat-2">
-                    <div class="stat-value">66.5%</div>
-                    <div class="stat-label">Seasonal Strength</div>
-                </div>
-                <div class="stat-card" id="stat-3">
-                    <div class="stat-value">11</div>
-                    <div class="stat-label">Peak Weeks/Year</div>
-                </div>
-                <div class="stat-card" id="stat-4">
-                    <div class="stat-value">16.3%</div>
-                    <div class="stat-label">Volatility</div>
-                </div>
-                <div class="stat-card" id="stat-5">
-                    <div class="stat-value">12</div>
-                    <div class="stat-label">Week Forecast</div>
-                </div>
-            </div>
         </div>
 
 
@@ -1250,183 +1336,84 @@
         <!-- Navigation Tabs -->
         <div class="nav-tabs">
             <button class="nav-tab active" data-tab="overview">
-                <i class="fas fa-home"></i> Overview
-            </button>
-            <button class="nav-tab" data-tab="charts">
-                <i class="fas fa-chart-line"></i> Interactive Charts
+                Overview
             </button>
             <button class="nav-tab" data-tab="analysis">
-                <i class="fas fa-chart-bar"></i> Analysis
+                Analysis
             </button>
             <button class="nav-tab" data-tab="patterns">
-                <i class="fas fa-pattern"></i> Patterns
+                Patterns
             </button>
             <button class="nav-tab" data-tab="intelligence">
-                <i class="fas fa-brain"></i> Intelligence
+                Intelligence
             </button>
             <button class="nav-tab" data-tab="downloads">
-                <i class="fas fa-download"></i> Downloads
+                Downloads
             </button>
         </div>
 
         <!-- Overview Section -->
         <div id="overview" class="content-section active">
             <div class="section">
-                <h2><i class="fas fa-chart-line"></i> Core Time Series Analysis</h2>
-                <p>Advanced analysis of your sales data with trend detection and seasonal patterns.</p>
+                <h2>Your Restaurant's Growth Story</h2>
+                <p>Simple breakdown of how your restaurant is performing and growing over time.</p>
                 
                 <div class="gallery">
                     <div class="image-card featured" data-image="01_professional_time_series.png">
                         <img src="01_professional_time_series.png" alt="Professional Time Series Analysis" loading="lazy">
                         <div class="image-info">
                             <h3>Complete Sales Journey Analysis</h3>
-                            <div class="filename">📁 01_professional_time_series.png</div>
+                            <div class="filename">01_professional_time_series.png</div>
                             
                             <div class="summary-card">
-                                <h4><i class="fas fa-info-circle"></i> TL;DR Summary</h4>
-                                <p id="overview-tldr">Visual breakdown showing three key components: Blue dashed line (original sales $40K-$57K), Green solid line (growth trend $8,500/year), and Red solid line (detrended seasonal patterns ±$10K). Reveals how your growth trend dominates sales while seasonal patterns remain consistent and predictable.</p>
+                                <h4>TL;DR Summary</h4>
+                                <p id="overview-tldr">Great news! Your restaurant is growing steadily. Sales went from $40,000 to $57,000 per week. You're growing by about $8,500 every year. Your busy and slow seasons vary by about $10,000. This means you can plan ahead and know what to expect!</p>
                             </div>
                             
-                            <p id="overview-analysis"><strong>Analysis Summary:</strong> This sophisticated time series decomposition reveals your restaurant's sales performance broken down into its fundamental components. The blue dashed line shows your actual sales evolution from $40,000 to $57,000 per week, the green solid line reveals the underlying growth trend of $8,500 per year, and the red solid line displays pure seasonal patterns after removing growth bias.</p>
+                            <p id="overview-analysis"><strong>Analysis Summary:</strong> This chart shows your restaurant's performance in three simple parts. The blue line shows your actual sales growing from $40,000 to $57,000 per week. The green line shows you're growing by about $8,500 every year. The red line shows your busy and slow seasons (without the growth trend), so you can see your seasonal patterns clearly.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Interactive Charts Section -->
-        <div id="charts" class="content-section">
-            <div class="section">
-                <h2><i class="fas fa-chart-line"></i> Interactive Time Series Charts</h2>
-                <p>Explore your sales data interactively with zoom, pan, and hover capabilities for deeper insights.</p>
-                
-                <!-- Chart Controls -->
-                <div class="chart-controls">
-                    <div class="control-group">
-                        <label for="chartType">Chart Type:</label>
-                        <select id="chartType" class="chart-select">
-                            <option value="timeSeries">Time Series</option>
-                            <option value="decomposition">Decomposition</option>
-                            <option value="seasonal">Seasonal Patterns</option>
-                            <option value="heatmap">Heatmap</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <label for="dateRange">Date Range:</label>
-                        <select id="dateRange" class="chart-select">
-                            <option value="all">All Data</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="last6months">Last 6 Months</option>
-                            <option value="last3months">Last 3 Months</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <button id="resetZoom" class="chart-btn">
-                            <i class="fas fa-search-minus"></i> Reset Zoom
-                        </button>
-                        <button id="exportChart" class="chart-btn">
-                            <i class="fas fa-download"></i> Export
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Chart Container -->
-                <div class="chart-container">
-                    <canvas id="mainChart"></canvas>
-                    <div id="chartError" style="display: none; text-align: center; padding: 2rem; color: var(--text-secondary);">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <h3>Chart Loading Error</h3>
-                        <p>Unable to load interactive chart. Please check your internet connection and refresh the page.</p>
-                        <button onclick="location.reload()" class="chart-btn">
-                            <i class="fas fa-redo"></i> Refresh Page
-                        </button>
-                    </div>
-
-                </div>
-                
-                <!-- Chart Legend -->
-                <div class="chart-legend">
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #3b82f6;"></span>
-                        <span>Original Sales</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #10b981;"></span>
-                        <span>Trend</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #ef4444;"></span>
-                        <span>Seasonal</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background: #f59e0b;"></span>
-                        <span>Residual</span>
-                    </div>
-                </div>
-                
-                <!-- Chart Insights -->
-                <div class="chart-insights">
-                    <div class="insight-card">
-                        <h4><i class="fas fa-mouse-pointer"></i> Interactive Features</h4>
-                        <ul>
-                            <li><strong>Zoom:</strong> Click and drag to zoom into specific time periods</li>
-                            <li><strong>Pan:</strong> Drag to move around when zoomed in</li>
-                            <li><strong>Hover:</strong> See exact values and dates on hover</li>
-                            <li><strong>Legend:</strong> Click legend items to show/hide series</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <h4><i class="fas fa-chart-bar"></i> Chart Types</h4>
-                        <ul>
-                            <li><strong>Time Series:</strong> Complete sales journey with all components</li>
-                            <li><strong>Decomposition:</strong> Trend, seasonal, and residual breakdown</li>
-                            <li><strong>Seasonal:</strong> Focus on seasonal patterns only</li>
-                            <li><strong>Heatmap:</strong> Weekly seasonal intensity visualization</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Analysis Section -->
         <div id="analysis" class="content-section">
             <div class="section">
-                <h2><i class="fas fa-chart-bar"></i> Advanced Time Series Decomposition</h2>
-                <p>Comprehensive statistical decomposition revealing the fundamental components driving your sales patterns.</p>
+                <h2>Understanding Your Sales Patterns</h2>
+                <p>Clear explanation of what drives your busy and slow seasons, and how to plan for them.</p>
                 
                 <div class="gallery">
                     <div class="image-card featured" data-image="03_trend_adjusted_peaks.png">
                         <img src="03_trend_adjusted_peaks.png" alt="Time Series Decomposition Analysis" loading="lazy">
                         <div class="image-info">
                             <h3>Complete Sales Decomposition Analysis</h3>
-                            <div class="filename">📁 03_trend_adjusted_peaks.png</div>
+                            <div class="filename">03_trend_adjusted_peaks.png</div>
                             
                             <div class="summary-card">
-                                <h4><i class="fas fa-info-circle"></i> TL;DR Summary</h4>
-                                <p id="analysis-tldr">Advanced decomposition breaks down your sales into three components: trend (85% - $8,500/year growth), seasonal (15% - ±$10,000 amplitude), and residual (&lt;5% - minimal noise). Reveals true seasonal patterns without growth bias.</p>
+                                <h4>TL;DR Summary</h4>
+                                <p id="analysis-tldr">Your sales break down into three simple parts: 85% comes from steady growth ($8,500 per year), 15% comes from busy and slow seasons, and less than 5% is just random ups and downs. This means your business is very predictable!</p>
                             </div>
                             
                             <div class="insights-grid">
                                 <div class="insight-card" id="analysis-business-insights">
-                                    <h4><i class="fas fa-chart-line"></i> Key Business Insights</h4>
+                                    <h4>What This Means for You</h4>
                                     <ul>
-                                        <li><strong>Growth Trajectory:</strong> $17,000 increase over 2-year period</li>
-                                        <li><strong>Seasonal Strength:</strong> ±$10,000 seasonal amplitude</li>
-                                        <li><strong>Peak Preparation:</strong> 3-week advance notice required</li>
-                                        <li><strong>Resource Planning:</strong> 25-30% staffing increase needed</li>
+                                        <li><strong>Strong Growth:</strong> You've grown by $17,000 over 2 years</li>
+                                        <li><strong>Seasonal Patterns:</strong> Sales vary by $10,000 with seasons</li>
+                                        <li><strong>Planning Time:</strong> You need 3 weeks to prepare for busy times</li>
+                                        <li><strong>Staffing Needs:</strong> Plan for 25-30% more staff during peaks</li>
                                     </ul>
                                 </div>
                                 
                                 <div class="insight-card" id="analysis-statistical">
-                                    <h4><i class="fas fa-calculator"></i> Statistical Components</h4>
+                                    <h4>How Your Sales Break Down</h4>
                                     <ul>
-                                        <li><strong>Trend Component:</strong> 85% contribution</li>
-                                        <li><strong>Seasonal Component:</strong> 15% contribution</li>
-                                        <li><strong>Residual Component:</strong> &lt;5% contribution</li>
-                                        <li><strong>Model Quality:</strong> Excellent fit (R² > 0.95)</li>
+                                        <li><strong>Steady Growth:</strong> 85% of your sales come from growth</li>
+                                        <li><strong>Seasonal Patterns:</strong> 15% comes from busy/slow seasons</li>
+                                        <li><strong>Random Variation:</strong> Less than 5% is unpredictable</li>
+                                        <li><strong>Reliability:</strong> These patterns are very predictable</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1439,39 +1426,39 @@
         <!-- Patterns Section -->
         <div id="patterns" class="content-section">
             <div class="section">
-                <h2><i class="fas fa-pattern"></i> Pattern Recognition & Analysis</h2>
-                <p>Advanced pattern recognition and seasonal analysis for strategic planning.</p>
+                <h2>Your Busy and Slow Seasons</h2>
+                <p>Simple guide to understanding when you'll be busy and when you'll be slow.</p>
                 
                 <div class="gallery">
                     <div class="image-card" data-image="04_enhanced_sales_heatmap.png">
                         <img src="04_enhanced_sales_heatmap.png" alt="Detrended Sales Intensity Heatmap" loading="lazy">
                         <div class="image-info">
                             <h3>Detrended Sales Intensity Heatmap</h3>
-                            <div class="filename">📁 04_enhanced_sales_heatmap.png</div>
+                            <div class="filename">04_enhanced_sales_heatmap.png</div>
                             
                             <div class="summary-card">
-                                <h4><i class="fas fa-info-circle"></i> TL;DR Summary</h4>
-                                <p id="patterns-tldr">Advanced heatmap showing true seasonal patterns after removing growth bias. Dark blue = October/November and April/May peaks, light blue = January/February and July/August troughs. Consistent patterns enable precise 8-12 week advance planning.</p>
+                                <h4>TL;DR Summary</h4>
+                                <p id="patterns-tldr">This chart shows your busy and slow seasons clearly. Dark blue areas are your busiest times (October/November and April/May). Light blue areas are your quietest times (January/February and July/August). You can see these patterns coming 8-12 weeks ahead, so you can plan ahead!</p>
                             </div>
                             
                             <div class="insights-grid">
                                 <div class="insight-card" id="patterns-peak-analysis">
-                                    <h4><i class="fas fa-arrow-up"></i> Peak Season Analysis</h4>
+                                    <h4>Your Busiest Times</h4>
                                     <ul>
-                                        <li><strong>October-November:</strong> Darkest blue intensity</li>
-                                        <li><strong>April-May:</strong> Medium-dark blue intensity</li>
-                                        <li><strong>Peak Reliability:</strong> Consistent timing</li>
-                                        <li><strong>Strategic Planning:</strong> 8-12 week advance preparation</li>
+                                        <li><strong>October & November:</strong> Your biggest rush of the year</li>
+                                        <li><strong>April & May:</strong> Your second busiest time</li>
+                                        <li><strong>Reliability:</strong> These patterns are very consistent</li>
+                                        <li><strong>Planning:</strong> Start preparing 8-12 weeks ahead</li>
                                     </ul>
                                 </div>
                                 
                                 <div class="insight-card" id="patterns-trough-analysis">
-                                    <h4><i class="fas fa-arrow-down"></i> Trough Season Analysis</h4>
+                                    <h4>Your Quietest Times</h4>
                                     <ul>
-                                        <li><strong>January-February:</strong> Lightest blue intensity</li>
-                                        <li><strong>July-August:</strong> Light-medium blue intensity</li>
-                                        <li><strong>Trough Consistency:</strong> Regular timing</li>
-                                        <li><strong>Cost Management:</strong> Reduce staffing during troughs</li>
+                                        <li><strong>January & February:</strong> Your quietest months</li>
+                                        <li><strong>July & August:</strong> Your second quietest time</li>
+                                        <li><strong>Consistency:</strong> These patterns are very predictable</li>
+                                        <li><strong>Opportunity:</strong> Use these times to save money and plan</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1484,7 +1471,7 @@
         <!-- Intelligence Section -->
         <div id="intelligence" class="content-section">
             <div class="section">
-                <h2><i class="fas fa-brain"></i> Business Intelligence Summary</h2>
+                <h2>Business Intelligence Summary</h2>
                 <p>Comprehensive analysis of your restaurant's performance with actionable insights for strategic decision making.</p>
                 
                 <div class="dynamic-dashboard">
@@ -1492,10 +1479,10 @@
                         <h3 id="dashboard-title">Enhanced Critical Business Metrics Dashboard</h3>
                         <div class="dashboard-controls">
                             <button id="refreshMetrics" class="dashboard-btn">
-                                <i class="fas fa-sync-alt"></i> Refresh
+                                Refresh
                             </button>
                             <button id="exportMetrics" class="dashboard-btn">
-                                <i class="fas fa-download"></i> Export
+                                Export
                             </button>
                         </div>
                     </div>
@@ -1505,13 +1492,13 @@
                     </div>
                     
                     <div class="summary-card">
-                        <h4><i class="fas fa-info-circle"></i> TL;DR Summary</h4>
+                        <h4>TL;DR Summary</h4>
                         <p id="intelligence-tldr">Your restaurant is growing strong! $177.86 weekly growth, 66.5% seasonal patterns, 11 peak weeks per year, and manageable 16.3% volatility. You can reliably forecast 12 weeks ahead.</p>
                     </div>
                     
                     <div class="insights-grid">
                         <div class="insight-card" id="intelligence-strategic">
-                            <h4><i class="fas fa-rocket"></i> Strategic Business Insights</h4>
+                            <h4>Strategic Business Insights</h4>
                             <ul>
                                 <li><strong>Investment Confidence:</strong> Growth is statistically significant</li>
                                 <li><strong>Seasonal Marketing:</strong> 66.5% seasonal strength</li>
@@ -1521,7 +1508,7 @@
                         </div>
                         
                         <div class="insight-card" id="intelligence-actions">
-                            <h4><i class="fas fa-tasks"></i> Immediate Action Items</h4>
+                            <h4>Immediate Action Items</h4>
                             <ul>
                                 <li><strong>Peak Week Preparation:</strong> Start planning 3 weeks before peaks</li>
                                 <li><strong>Seasonal Menu Planning:</strong> Develop seasonal specials</li>
@@ -1537,86 +1524,86 @@
         <!-- Downloads Section -->
         <div id="downloads" class="content-section">
             <div class="download-section">
-                <h2><i class="fas fa-download"></i> Download Analysis Reports</h2>
+                <h2>Download Analysis Reports</h2>
                 <p>Download comprehensive analysis reports and documentation for detailed review and strategic planning.</p>
                 
 
                 
                 <div class="download-grid">
                     <div class="download-card">
-                        <h4><i class="fas fa-chart-line"></i> Core Time Series Analysis</h4>
+                        <h4>Core Time Series Analysis</h4>
                         <p>Complete sales journey analysis with trend, seasonal, and detrended components breakdown.</p>
                         <div class="download-actions">
                             <button class="download-btn preview-btn" data-report="TIME_SERIES_DECOMPOSITION_ANALYSIS.md">
-                                <i class="fas fa-eye"></i> Preview Report
+                                Preview Report
                             </button>
                             <a href="TIME_SERIES_DECOMPOSITION_ANALYSIS.md" download="Core_Time_Series_Analysis.md" class="download-btn">
-                                <i class="fas fa-download"></i> Download
+                                Download
                             </a>
                         </div>
                     </div>
                     
                     <div class="download-card">
-                        <h4><i class="fas fa-chart-bar"></i> Advanced Decomposition Analysis</h4>
+                        <h4>Advanced Decomposition Analysis</h4>
                         <p>Statistical decomposition revealing fundamental components driving sales patterns.</p>
                         <div class="download-actions">
                             <button class="download-btn preview-btn" data-report="TREND_DECOMPOSITION_BUSINESS_ANALYSIS.md">
-                                <i class="fas fa-eye"></i> Preview Report
+                                Preview Report
                             </button>
                             <a href="TREND_DECOMPOSITION_BUSINESS_ANALYSIS.md" download="Advanced_Decomposition_Analysis.md" class="download-btn">
-                                <i class="fas fa-download"></i> Download
+                                Download
                             </a>
                         </div>
                     </div>
                     
                     <div class="download-card">
-                        <h4><i class="fas fa-fire"></i> Detrended Sales Heatmap Analysis</h4>
+                        <h4>Detrended Sales Heatmap Analysis</h4>
                         <p>True seasonal patterns revealed by removing growth bias from sales data.</p>
                         <div class="download-actions">
                             <button class="download-btn preview-btn" data-report="DETRENDED_SALES_HEATMAP_ANALYSIS.md">
-                                <i class="fas fa-eye"></i> Preview Report
+                                Preview Report
                             </button>
                             <a href="DETRENDED_SALES_HEATMAP_ANALYSIS.md" download="Detrended_Sales_Heatmap_Analysis.md" class="download-btn">
-                                <i class="fas fa-download"></i> Download
+                                Download
                             </a>
                         </div>
                     </div>
                     
                     <div class="download-card">
-                        <h4><i class="fas fa-calendar-alt"></i> Monthly Sales Patterns Analysis</h4>
+                        <h4>Monthly Sales Patterns Analysis</h4>
                         <p>Growth vs seasonality comparison with original vs detrended sales analysis.</p>
                         <div class="download-actions">
                             <button class="download-btn preview-btn" data-report="MONTHLY_SALES_PATTERNS_ANALYSIS.md">
-                                <i class="fas fa-eye"></i> Preview Report
+                                Preview Report
                             </button>
                             <a href="MONTHLY_SALES_PATTERNS_ANALYSIS.md" download="Monthly_Sales_Patterns_Analysis.md" class="download-btn">
-                                <i class="fas fa-download"></i> Download
+                                Download
                             </a>
                         </div>
                     </div>
                     
                     <div class="download-card">
-                        <h4><i class="fas fa-brain"></i> Business Intelligence Summary</h4>
+                        <h4>Business Intelligence Summary</h4>
                         <p>Enhanced business intelligence dashboard with actionable strategic insights.</p>
                         <div class="download-actions">
                             <button class="download-btn preview-btn" data-report="BUSINESS_INTELLIGENCE_SUMMARY_ANALYSIS.md">
-                                <i class="fas fa-eye"></i> Preview Report
+                                Preview Report
                             </button>
                             <a href="BUSINESS_INTELLIGENCE_SUMMARY_ANALYSIS.md" download="Business_Intelligence_Summary.md" class="download-btn">
-                                <i class="fas fa-download"></i> Download
+                                Download
                             </a>
                         </div>
                     </div>
                     
                     <div class="download-card">
-                        <h4><i class="fas fa-book"></i> Business Planning Guide</h4>
+                        <h4>Business Planning Guide</h4>
                         <p>Comprehensive business planning recommendations and strategic guidance.</p>
                         <div class="download-actions">
                             <button class="download-btn preview-btn" data-report="BUSINESS_PLANNING_GUIDE.md">
-                                <i class="fas fa-eye"></i> Preview Report
+                                Preview Report
                             </button>
                             <a href="BUSINESS_PLANNING_GUIDE.md" download="Business_Planning_Guide.md" class="download-btn">
-                                <i class="fas fa-download"></i> Download
+                                Download
                             </a>
                         </div>
                     </div>
@@ -1642,10 +1629,10 @@
                 </div>
                 <div class="modal-footer">
                     <button class="download-btn" id="downloadFromPreview">
-                        <i class="fas fa-external-link-alt"></i> View Raw Text
+                        View Raw Text
                     </button>
                     <button class="chart-btn" id="closeReportBtn">
-                        <i class="fas fa-times"></i> Close
+                        Close
                     </button>
                 </div>
             </div>
@@ -1658,7 +1645,7 @@
             <h3 id="imageTitle">Image Preview</h3>
             <div class="image-modal-controls">
                 <button type="button" class="download-btn" id="downloadImage">
-                    <i class="fas fa-download"></i> Download
+                    Download
                 </button>
                 <button type="button" class="close" id="closeImageModal">&times;</button>
             </div>
@@ -2054,14 +2041,6 @@
                 }
             }, 100);
             
-            // Initialize charts
-            setTimeout(() => {
-                try {
-                    new InteractiveCharts();
-                } catch (error) {
-                    console.error('Failed to initialize charts:', error);
-                }
-            }, 500);
             
             // Test report file accessibility
             testReportFiles();
@@ -2102,475 +2081,6 @@
             }
         }
         
-        // Interactive Charts Class
-        class InteractiveCharts {
-            constructor() {
-                this.chart = null;
-                this.currentData = null;
-                this.init();
-            }
-            
-            init() {
-                this.setupEventListeners();
-                this.loadSampleData();
-                this.createChart();
-            }
-            
-            setupEventListeners() {
-                // Check if chart elements exist
-                const chartType = document.getElementById('chartType');
-                const dateRange = document.getElementById('dateRange');
-                const resetZoom = document.getElementById('resetZoom');
-                const exportChart = document.getElementById('exportChart');
-                
-                if (!chartType || !dateRange || !resetZoom || !exportChart) {
-                    console.error('Chart control elements not found!');
-                    this.showChartError();
-                    return;
-                }
-                
-                // Chart type selector
-                chartType.addEventListener('change', (e) => {
-                    this.updateChartType(e.target.value);
-                });
-                
-                // Date range selector
-                dateRange.addEventListener('change', (e) => {
-                    this.updateDateRange(e.target.value);
-                });
-                
-                // Reset zoom button
-                resetZoom.addEventListener('click', () => {
-                    this.resetZoom();
-                });
-                
-                // Export button
-                exportChart.addEventListener('click', () => {
-                    this.exportChart();
-                });
-                
-
-            }
-            
-            loadSampleData() {
-                // Sample time series data based on your analysis
-                const startDate = new Date('2023-07-01');
-                const data = [];
-                
-                for (let i = 0; i < 107; i++) {
-                    const date = new Date(startDate);
-                    date.setDate(startDate.getDate() + (i * 7));
-                    
-                    // Base trend (linear growth)
-                    const trend = 40000 + (i * 177.86);
-                    
-                    // Seasonal component (bimodal pattern)
-                    const weekOfYear = Math.floor((date.getTime() - new Date(date.getFullYear(), 0, 1).getTime()) / (7 * 24 * 60 * 60 * 1000));
-                    const seasonal = this.calculateSeasonal(weekOfYear);
-                    
-                    // Random noise
-                    const noise = (Math.random() - 0.5) * 2000;
-                    
-                    // Original sales
-                    const original = trend + seasonal + noise;
-                    
-                    data.push({
-                        date: date,
-                        original: Math.round(original),
-                        trend: Math.round(trend),
-                        seasonal: Math.round(seasonal),
-                        residual: Math.round(noise)
-                    });
-                }
-                
-                this.currentData = data;
-            }
-            
-            calculateSeasonal(weekOfYear) {
-                // Bimodal seasonal pattern based on your analysis
-                // Peaks in October/November (weeks 40-48) and April/May (weeks 16-22)
-                // Troughs in January/February (weeks 1-8) and July/August (weeks 28-35)
-                
-                const amplitude = 8000;
-                
-                // Fall peak (October/November)
-                const fallPeak = Math.exp(-Math.pow((weekOfYear - 44) / 4, 2)) * amplitude;
-                
-                // Spring peak (April/May)
-                const springPeak = Math.exp(-Math.pow((weekOfYear - 19) / 3, 2)) * amplitude * 0.7;
-                
-                // Winter trough (January/February)
-                const winterTrough = -Math.exp(-Math.pow((weekOfYear - 4) / 3, 2)) * amplitude * 0.8;
-                
-                // Summer trough (July/August)
-                const summerTrough = -Math.exp(-Math.pow((weekOfYear - 31) / 3, 2)) * amplitude * 0.6;
-                
-                return fallPeak + springPeak + winterTrough + summerTrough;
-            }
-            
-            createChart() {
-                // Check if Chart.js is loaded
-                if (typeof Chart === 'undefined') {
-                    console.error('Chart.js is not loaded!');
-                    this.showChartError();
-                    return;
-                }
-                
-                const canvas = document.getElementById('mainChart');
-                if (!canvas) {
-                    console.error('Chart canvas not found!');
-                    this.showChartError();
-                    return;
-                }
-                
-                const ctx = canvas.getContext('2d');
-                if (!ctx) {
-                    console.error('Could not get 2D context from canvas!');
-                    this.showChartError();
-                    return;
-                }
-                
-                const chartData = this.prepareChartData('timeSeries', 'all');
-                
-                                try {
-                    this.chart = new Chart(ctx, {
-                        type: 'line',
-                        data: chartData,
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            aspectRatio: 2,
-                            interaction: {
-                                intersect: false,
-                                mode: 'index'
-                            },
-                            plugins: {
-                                title: {
-                                    display: true,
-                                    text: 'Restaurant Sales Time Series Analysis',
-                                    font: {
-                                        size: 16,
-                                        weight: 'bold'
-                                    }
-                                },
-                                legend: {
-                                    display: true,
-                                    position: 'top'
-                                },
-                                tooltip: {
-                                    callbacks: {
-                                        title: function(context) {
-                                            const date = new Date(context[0].parsed.x);
-                                            return date.toLocaleDateString('en-US', {
-                                                year: 'numeric',
-                                                month: 'long',
-                                                day: 'numeric'
-                                            });
-                                        },
-                                        label: function(context) {
-                                            return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
-                                        }
-                                    }
-                                }
-                            },
-                            scales: {
-                                x: {
-                                    type: 'time',
-                                    time: {
-                                        unit: 'week',
-                                        displayFormats: {
-                                            week: 'MMM d, yyyy'
-                                        }
-                                    },
-                                    title: {
-                                        display: true,
-                                        text: 'Date'
-                                    }
-                                },
-                                y: {
-                                    title: {
-                                        display: true,
-                                        text: 'Sales ($)'
-                                    },
-                                    ticks: {
-                                        callback: function(value) {
-                                            return '$' + value.toLocaleString();
-                                        }
-                                    }
-                                }
-                            },
-                            plugins: {
-                                zoom: {
-                                    zoom: {
-                                        wheel: {
-                                            enabled: true
-                                        },
-                                        pinch: {
-                                            enabled: true
-                                        },
-                                        mode: 'xy'
-                                    },
-                                    pan: {
-                                        enabled: true,
-                                        mode: 'xy'
-                                    }
-                                }
-                            }
-                        }
-                    });
-                
-                console.log('Chart created successfully');
-            } catch (error) {
-                console.error('Error creating chart:', error);
-                this.showChartError();
-            }
-        }
-            
-            prepareChartData(chartType, dateRange) {
-                let filteredData = this.filterDataByDateRange(this.currentData, dateRange);
-                
-                const datasets = [];
-                
-                switch (chartType) {
-                    case 'timeSeries':
-                        datasets.push(
-                            {
-                                label: 'Original Sales',
-                                data: filteredData.map(d => ({ x: d.date, y: d.original })),
-                                borderColor: '#3b82f6',
-                                backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                                borderWidth: 2,
-                                fill: false,
-                                tension: 0.1
-                            },
-                            {
-                                label: 'Trend',
-                                data: filteredData.map(d => ({ x: d.date, y: d.trend })),
-                                borderColor: '#10b981',
-                                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                                borderWidth: 2,
-                                fill: false,
-                                tension: 0.1
-                            },
-                            {
-                                label: 'Seasonal',
-                                data: filteredData.map(d => ({ x: d.date, y: d.trend + d.seasonal })),
-                                borderColor: '#ef4444',
-                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                                borderWidth: 2,
-                                fill: false,
-                                tension: 0.1
-                            }
-                        );
-                        break;
-                        
-                    case 'decomposition':
-                        datasets.push(
-                            {
-                                label: 'Trend Component',
-                                data: filteredData.map(d => ({ x: d.date, y: d.trend })),
-                                borderColor: '#10b981',
-                                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                                borderWidth: 3,
-                                fill: false
-                            },
-                            {
-                                label: 'Seasonal Component',
-                                data: filteredData.map(d => ({ x: d.date, y: d.seasonal })),
-                                borderColor: '#ef4444',
-                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                                borderWidth: 2,
-                                fill: false
-                            },
-                            {
-                                label: 'Residual Component',
-                                data: filteredData.map(d => ({ x: d.date, y: d.residual })),
-                                borderColor: '#f59e0b',
-                                backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                                borderWidth: 1,
-                                fill: false
-                            }
-                        );
-                        break;
-                        
-                    case 'seasonal':
-                        datasets.push({
-                            label: 'Seasonal Pattern',
-                            data: filteredData.map(d => ({ x: d.date, y: d.seasonal })),
-                            borderColor: '#ef4444',
-                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                            borderWidth: 2,
-                            fill: true
-                        });
-                        break;
-                        
-                    case 'heatmap':
-                        // For heatmap, we'll create a scatter plot with color intensity
-                        const heatmapData = filteredData.map(d => ({
-                            x: d.date,
-                            y: d.seasonal,
-                            r: Math.abs(d.seasonal) / 1000 // Size based on seasonal intensity
-                        }));
-                        
-                        datasets.push({
-                            label: 'Seasonal Intensity',
-                            data: heatmapData,
-                            backgroundColor: filteredData.map(d => {
-                                const intensity = Math.abs(d.seasonal) / 8000;
-                                return `rgba(59, 130, 246, ${intensity})`;
-                            }),
-                            borderColor: '#3b82f6',
-                            borderWidth: 1,
-                            type: 'scatter'
-                        });
-                        break;
-                }
-                
-                return { datasets };
-            }
-            
-            filterDataByDateRange(data, dateRange) {
-                const now = new Date();
-                
-                switch (dateRange) {
-                    case '2023':
-                        return data.filter(d => d.date.getFullYear() === 2023);
-                    case '2024':
-                        return data.filter(d => d.date.getFullYear() === 2024);
-                    case '2025':
-                        return data.filter(d => d.date.getFullYear() === 2025);
-                    case 'last6months':
-                        const sixMonthsAgo = new Date(now.getTime() - (6 * 30 * 24 * 60 * 60 * 1000));
-                        return data.filter(d => d.date >= sixMonthsAgo);
-                    case 'last3months':
-                        const threeMonthsAgo = new Date(now.getTime() - (3 * 30 * 24 * 60 * 60 * 1000));
-                        return data.filter(d => d.date >= threeMonthsAgo);
-                    default:
-                        return data;
-                }
-            }
-            
-            updateChartType(chartType) {
-                const chartData = this.prepareChartData(chartType, document.getElementById('dateRange').value);
-                this.chart.data = chartData;
-                this.chart.update();
-            }
-            
-            updateDateRange(dateRange) {
-                const chartType = document.getElementById('chartType').value;
-                const chartData = this.prepareChartData(chartType, dateRange);
-                this.chart.data = chartData;
-                this.chart.update();
-            }
-            
-            resetZoom() {
-                if (!this.chart) {
-                    console.error('No chart available to reset zoom');
-                    showNotification('No chart available to reset zoom', 'error');
-                    return;
-                }
-                
-                try {
-                    this.chart.resetZoom();
-                    showNotification('Zoom reset successfully!', 'success');
-                } catch (error) {
-                    console.error('Error resetting zoom:', error);
-                    showNotification('Failed to reset zoom', 'error');
-                }
-            }
-            
-            showChartError() {
-                const errorDiv = document.getElementById('chartError');
-                const canvas = document.getElementById('mainChart');
-                if (errorDiv && canvas) {
-                    canvas.style.display = 'none';
-                    errorDiv.style.display = 'block';
-                }
-                
-                // Also show a simple fallback chart using basic canvas
-                this.createFallbackChart();
-            }
-            
-            createFallbackChart() {
-                const canvas = document.getElementById('mainChart');
-                if (!canvas) return;
-                
-                const ctx = canvas.getContext('2d');
-                if (!ctx) return;
-                
-                // Clear canvas
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                // Draw a simple line chart
-                ctx.strokeStyle = '#3b82f6';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                
-                const data = this.currentData || [];
-                if (data.length > 0) {
-                    const width = canvas.width;
-                    const height = canvas.height;
-                    const padding = 40;
-                    const chartWidth = width - 2 * padding;
-                    const chartHeight = height - 2 * padding;
-                    
-                    // Find min/max values
-                    const values = data.map(d => d.original);
-                    const min = Math.min(...values);
-                    const max = Math.max(...values);
-                    const range = max - min;
-                    
-                    // Draw data points
-                    data.forEach((point, i) => {
-                        const x = padding + (i / (data.length - 1)) * chartWidth;
-                        const y = height - padding - ((point.original - min) / range) * chartHeight;
-                        
-                        if (i === 0) {
-                            ctx.moveTo(x, y);
-                        } else {
-                            ctx.lineTo(x, y);
-                        }
-                    });
-                    
-                    ctx.stroke();
-                    
-                    // Add title
-                    ctx.fillStyle = '#1f2937';
-                    ctx.font = '16px Inter, sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('Sales Time Series (Fallback View)', width / 2, 25);
-                    
-                    // Add axis labels
-                    ctx.font = '12px Inter, sans-serif';
-                    ctx.fillText('Date', width / 2, height - 10);
-                    ctx.save();
-                    ctx.translate(20, height / 2);
-                    ctx.rotate(-Math.PI / 2);
-                    ctx.fillText('Sales ($)', 0, 0);
-                    ctx.restore();
-                }
-            }
-            
-            exportChart() {
-                if (!this.chart) {
-                    console.error('No chart available to export');
-                    showNotification('No chart available to export', 'error');
-                    return;
-                }
-                
-                try {
-                    const link = document.createElement('a');
-                    link.download = 'sales-analysis-chart.png';
-                    link.href = this.chart.toBase64Image();
-                    link.click();
-                    showNotification('Chart exported successfully!', 'success');
-                } catch (error) {
-                    console.error('Error exporting chart:', error);
-                    showNotification('Failed to export chart', 'error');
-                }
-            }
-        }
-
         // Report Manager Class
         class ReportManager {
             constructor() {
@@ -2698,7 +2208,6 @@
                     console.error('Error loading report:', error);
                     content.innerHTML = `
                         <div style="text-align: center; padding: 2rem;">
-                            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--error-color); margin-bottom: 1rem;"></i>
                             <h3>Preview Not Available</h3>
                             <p>Unable to load preview for: <strong>${reportFile}</strong></p>
                             <p>Error: ${error.message}</p>
@@ -3018,11 +2527,11 @@ The linear growth trend shows consistent upward movement:
             getBusinessFriendlyTimeSeriesContent() {
                 return `# Your Restaurant's Growth Story
 
-## 🎯 The Bottom Line
+## The Bottom Line
 
 Your restaurant is doing great! You're growing steadily and have predictable busy and slow seasons. Here's what you need to know to make smart business decisions.
 
-## 📈 Your Growth Story
+## Your Growth Story
 
 ### The Good News
 - **You're Growing:** Your sales are increasing by about $178 every week
@@ -3053,7 +2562,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - You can see these patterns coming 8-12 weeks ahead
 - This gives you time to prepare properly
 
-## 💡 Smart Business Moves
+## Smart Business Moves
 
 ### Staffing Strategy
 - **During Busy Times:** Add 25-30% more staff
@@ -3070,7 +2579,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - **Target Your Efforts:** Focus on the periods when people are most likely to visit
 - **Use Your Data:** Your busy seasons are when marketing works best
 
-## 🎯 Your Competitive Advantages
+## Your Competitive Advantages
 
 ### You Can Predict the Future
 - You can forecast sales 12 weeks ahead with good accuracy
@@ -3087,7 +2596,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - You can prepare for their needs
 - You can optimize your operations for maximum efficiency
 
-## 🚀 Action Plan
+## Action Plan
 
 ### Immediate Actions (Next 30 Days)
 1. **Review Your Calendar:** Mark your 11 peak weeks for the coming year
@@ -3107,7 +2616,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 3. **Develop Seasonal Offerings:** Special menus for peak periods
 4. **Build Your Team:** Hire and train staff for growth
 
-## 💰 Financial Planning
+## Financial Planning
 
 ### Cash Flow Management
 - **Peak Seasons:** Expect 25-30% more revenue
@@ -3120,7 +2629,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - **Marketing:** Increase marketing budget before peak seasons
 - **Expansion:** Your growth supports expansion plans
 
-## 🎉 The Bottom Line
+## The Bottom Line
 
 Your restaurant is in an excellent position:
 - **Growing steadily** with predictable patterns
@@ -3134,7 +2643,7 @@ You have the data and insights to make confident business decisions. Use this in
             getBusinessFriendlyTrendAnalysisContent() {
                 return `# Understanding Your Sales Patterns
 
-## 🎯 What This Tells You
+## What This Tells You
 
 Your restaurant has very predictable busy and slow seasons. This is actually great news because you can plan ahead and make smart business decisions!
 
@@ -3152,7 +2661,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **What Happens:** Sales drop by $6,000-$8,000 below normal
 - **Why This Matters:** These are your cost-cutting opportunities
 
-## 💡 Smart Planning Strategies
+## Smart Planning Strategies
 
 ### Before Busy Seasons (Start 3 Weeks Early)
 1. **Hire Extra Staff:** You'll need 25-30% more people
@@ -3166,7 +2675,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 3. **Train Your Team:** Use quiet time for development
 4. **Plan for the Future:** Work on new menus and strategies
 
-## 📊 The Numbers That Matter
+## The Numbers That Matter
 
 ### Your Peak Weeks
 - **11 weeks per year** when you're busiest
@@ -3178,7 +2687,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **Medium-term:** 6-12 months ahead (good accuracy)
 - **Long-term:** 1+ years ahead (general trends)
 
-## 🎯 Business Benefits
+## Business Benefits
 
 ### You Can Outsmart Your Competition
 - Most restaurants don't know their patterns this well
@@ -3196,7 +2705,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - No more panic when it gets slow
 - You can plan your personal time around business patterns
 
-## 🚀 Action Items
+## Action Items
 
 ### This Month
 1. **Mark Your Calendar:** Highlight your 11 peak weeks for next year
@@ -3216,7 +2725,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 3. **Develop Seasonal Offerings:** Special menus for peak periods
 4. **Build Your Team:** Hire and train for growth
 
-## 💰 Financial Impact
+## Financial Impact
 
 ### Peak Season Opportunities
 - **Extra Revenue:** $8,000-$10,000 more per week during peaks
@@ -3228,7 +2737,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **Efficiency Gains:** Optimize operations when it's quiet
 - **Investment Time:** Use slow periods for improvements
 
-## 🎉 The Bottom Line
+## The Bottom Line
 
 Your seasonal patterns are a **competitive advantage**, not a problem. You have:
 - **Predictable busy seasons** to maximize profits
@@ -3242,7 +2751,7 @@ Use this knowledge to plan ahead, optimize your operations, and maximize your re
             getBusinessFriendlyHeatmapContent() {
                 return `# Your Busy and Slow Seasons
 
-## 🎯 What This Tells You
+## What This Tells You
 
 Your restaurant has very predictable busy and slow seasons. This is actually great news because you can plan ahead and make smart business decisions!
 
@@ -3260,7 +2769,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **What Happens:** Sales drop by $6,000-$8,000 below normal
 - **Why This Matters:** These are your cost-cutting opportunities
 
-## 💡 Smart Planning Strategies
+## Smart Planning Strategies
 
 ### Before Busy Seasons (Start 3 Weeks Early)
 1. **Hire Extra Staff:** You'll need 25-30% more people
@@ -3274,7 +2783,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 3. **Train Your Team:** Use quiet time for development
 4. **Plan for the Future:** Work on new menus and strategies
 
-## 📊 The Numbers That Matter
+## The Numbers That Matter
 
 ### Your Peak Weeks
 - **11 weeks per year** when you're busiest
@@ -3286,7 +2795,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **Medium-term:** 6-12 months ahead (good accuracy)
 - **Long-term:** 1+ years ahead (general trends)
 
-## 🎯 Business Benefits
+## Business Benefits
 
 ### You Can Outsmart Your Competition
 - Most restaurants don't know their patterns this well
@@ -3304,7 +2813,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - No more panic when it gets slow
 - You can plan your personal time around business patterns
 
-## 🚀 Action Items
+## Action Items
 
 ### This Month
 1. **Mark Your Calendar:** Highlight your 11 peak weeks for next year
@@ -3324,7 +2833,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 3. **Develop Seasonal Offerings:** Special menus for peak periods
 4. **Build Your Team:** Hire and train for growth
 
-## 💰 Financial Impact
+## Financial Impact
 
 ### Peak Season Opportunities
 - **Extra Revenue:** $8,000-$10,000 more per week during peaks
@@ -3336,7 +2845,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **Efficiency Gains:** Optimize operations when it's quiet
 - **Investment Time:** Use slow periods for improvements
 
-## 🎉 The Bottom Line
+## The Bottom Line
 
 Your seasonal patterns are a **competitive advantage**, not a problem. You have:
 - **Predictable busy seasons** to maximize profits
@@ -3350,7 +2859,7 @@ Use this knowledge to plan ahead, optimize your operations, and maximize your re
             getBusinessFriendlyMonthlyPatternsContent() {
                 return `# Monthly Performance Guide
 
-## 🎯 What This Tells You
+## What This Tells You
 
 Your restaurant has very predictable busy and slow seasons. This is actually great news because you can plan ahead and make smart business decisions!
 
@@ -3368,7 +2877,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **What Happens:** Sales drop by $6,000-$8,000 below normal
 - **Why This Matters:** These are your cost-cutting opportunities
 
-## 💡 Smart Planning Strategies
+## Smart Planning Strategies
 
 ### Before Busy Seasons (Start 3 Weeks Early)
 1. **Hire Extra Staff:** You'll need 25-30% more people
@@ -3382,7 +2891,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 3. **Train Your Team:** Use quiet time for development
 4. **Plan for the Future:** Work on new menus and strategies
 
-## 📊 The Numbers That Matter
+## The Numbers That Matter
 
 ### Your Peak Weeks
 - **11 weeks per year** when you're busiest
@@ -3394,7 +2903,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **Medium-term:** 6-12 months ahead (good accuracy)
 - **Long-term:** 1+ years ahead (general trends)
 
-## 🎯 Business Benefits
+## Business Benefits
 
 ### You Can Outsmart Your Competition
 - Most restaurants don't know their patterns this well
@@ -3412,7 +2921,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - No more panic when it gets slow
 - You can plan your personal time around business patterns
 
-## 🚀 Action Items
+## Action Items
 
 ### This Month
 1. **Mark Your Calendar:** Highlight your 11 peak weeks for next year
@@ -3432,7 +2941,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 3. **Develop Seasonal Offerings:** Special menus for peak periods
 4. **Build Your Team:** Hire and train for growth
 
-## 💰 Financial Impact
+## Financial Impact
 
 ### Peak Season Opportunities
 - **Extra Revenue:** $8,000-$10,000 more per week during peaks
@@ -3444,7 +2953,7 @@ Your restaurant has very predictable busy and slow seasons. This is actually gre
 - **Efficiency Gains:** Optimize operations when it's quiet
 - **Investment Time:** Use slow periods for improvements
 
-## 🎉 The Bottom Line
+## The Bottom Line
 
 Your seasonal patterns are a **competitive advantage**, not a problem. You have:
 - **Predictable busy seasons** to maximize profits
@@ -3458,11 +2967,11 @@ Use this knowledge to plan ahead, optimize your operations, and maximize your re
             getBusinessFriendlyBusinessIntelligenceContent() {
                 return `# What This Means for Your Business
 
-## 🎯 The Bottom Line
+## The Bottom Line
 
 Your restaurant is doing great! You're growing steadily and have predictable busy and slow seasons. Here's what you need to know to make smart business decisions.
 
-## 📈 Your Growth Story
+## Your Growth Story
 
 ### The Good News
 - **You're Growing:** Your sales are increasing by about $178 every week
@@ -3493,7 +3002,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - You can see these patterns coming 8-12 weeks ahead
 - This gives you time to prepare properly
 
-## 💡 Smart Business Moves
+## Smart Business Moves
 
 ### Staffing Strategy
 - **During Busy Times:** Add 25-30% more staff
@@ -3510,7 +3019,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - **Target Your Efforts:** Focus on the periods when people are most likely to visit
 - **Use Your Data:** Your busy seasons are when marketing works best
 
-## 🎯 Your Competitive Advantages
+## Your Competitive Advantages
 
 ### You Can Predict the Future
 - You can forecast sales 12 weeks ahead with good accuracy
@@ -3527,7 +3036,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - You can prepare for their needs
 - You can optimize your operations for maximum efficiency
 
-## 🚀 Action Plan
+## Action Plan
 
 ### Immediate Actions (Next 30 Days)
 1. **Review Your Calendar:** Mark your 11 peak weeks for the coming year
@@ -3547,7 +3056,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 3. **Develop Seasonal Offerings:** Special menus for peak periods
 4. **Build Your Team:** Hire and train staff for growth
 
-## 💰 Financial Planning
+## Financial Planning
 
 ### Cash Flow Management
 - **Peak Seasons:** Expect 25-30% more revenue
@@ -3560,7 +3069,7 @@ Your restaurant is doing great! You're growing steadily and have predictable bus
 - **Marketing:** Increase marketing budget before peak seasons
 - **Expansion:** Your growth supports expansion plans
 
-## 🎉 The Bottom Line
+## The Bottom Line
 
 Your restaurant is in an excellent position:
 - **Growing steadily** with predictable patterns
@@ -3574,11 +3083,11 @@ You have the data and insights to make confident business decisions. Use this in
             getBusinessFriendlyBusinessPlanningContent() {
                 return `# Practical Business Planning
 
-## 🎯 Your Business Planning Roadmap
+## Your Business Planning Roadmap
 
 This guide gives you practical steps to use your sales data to make better business decisions. No complicated jargon - just clear, actionable advice.
 
-## 📈 Understanding Your Growth
+## Understanding Your Growth
 
 ### Your Growth Story
 - **Weekly Growth:** $178 more sales every week
@@ -3616,7 +3125,7 @@ This guide gives you practical steps to use your sales data to make better busin
 4. **Plan for the Future:** Work on new menus and strategies
 5. **Review Your Operations:** Look for ways to improve efficiency
 
-## 💰 Financial Planning
+## Financial Planning
 
 ### Cash Flow Management
 - **Peak Seasons:** Expect 25-30% more revenue
@@ -3682,7 +3191,7 @@ This guide gives you practical steps to use your sales data to make better busin
 - **ROI Tracking:** Measure the effectiveness of your campaigns
 - **Customer Feedback:** Use slow periods to gather customer input
 
-## 🎯 Operational Excellence
+## Operational Excellence
 
 ### Quality Control
 - **Busy Times:** Don't let quality suffer during rushes
@@ -3696,7 +3205,7 @@ This guide gives you practical steps to use your sales data to make better busin
 - **Equipment:** Maintain and upgrade during quiet times
 - **Workflow:** Streamline processes for busy periods
 
-## 🚀 Action Plan
+## Action Plan
 
 ### Immediate Actions (Next 30 Days)
 1. **Review Your Calendar:** Mark your 11 peak weeks for next year
@@ -3719,7 +3228,7 @@ This guide gives you practical steps to use your sales data to make better busin
 4. **Invest in Technology:** Systems to help manage seasonal variations
 5. **Plan for Growth:** Use your data to guide expansion decisions
 
-## 🎉 Success Metrics
+## Success Metrics
 
 ### Track These Numbers
 - **Sales Growth:** Continue your $178 weekly growth
@@ -3733,7 +3242,7 @@ This guide gives you practical steps to use your sales data to make better busin
 - **Quarterly:** Review and adjust your seasonal plans
 - **Annually:** Plan for the next year based on your data
 
-## 💡 The Bottom Line
+## The Bottom Line
 
 Your restaurant has excellent data that gives you a competitive advantage. Use this information to:
 - **Plan ahead** for busy and slow seasons
@@ -3889,7 +3398,6 @@ Remember: Your growth is real, your patterns are predictable, and your future is
             const notification = document.createElement('div');
             notification.className = `notification notification-${type}`;
             notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
                 <span>${message}</span>
             `;
             
@@ -3978,18 +3486,16 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                 if (this.isBusinessMode) {
                     this.toggleBtn.classList.add('business-mode');
                     this.toggleText.textContent = 'Scientific View';
-                    this.toggleBtn.querySelector('i').className = 'fas fa-flask';
                 } else {
                     this.toggleBtn.classList.remove('business-mode');
                     this.toggleText.textContent = 'Business View';
-                    this.toggleBtn.querySelector('i').className = 'fas fa-users';
                 }
             }
             
             updatePageTitle() {
                 const title = document.querySelector('title');
                 if (this.isBusinessMode) {
-                    title.textContent = 'Restaurant Business Dashboard - Simple Insights';
+                    title.textContent = 'Upside Time Series Analysis - Business Intelligence Dashboard';
                 } else {
                     title.textContent = 'Upside Time Series Analysis - Business Intelligence Dashboard';
                 }
@@ -4009,12 +3515,16 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                 const headerTitle = document.querySelector('.header h1');
                 const headerDesc = document.querySelector('.header p');
                 
-                if (this.isBusinessMode) {
-                    headerTitle.innerHTML = '<i class="fas fa-chart-line"></i> Restaurant Business Dashboard';
-                    headerDesc.textContent = 'Simple insights to help you make smart business decisions and grow your restaurant';
-                } else {
-                    headerTitle.innerHTML = '<i class="fas fa-chart-line"></i> Time Series Analysis';
-                    headerDesc.textContent = 'Advanced business intelligence dashboard for restaurant sales forecasting and strategic decision making';
+                if (headerTitle) {
+                    headerTitle.textContent = 'Time Series Analysis';
+                }
+                
+                if (headerDesc) {
+                    if (this.isBusinessMode) {
+                        headerDesc.textContent = '';
+                    } else {
+                        headerDesc.textContent = 'Advanced business intelligence dashboard for restaurant sales forecasting and strategic decision making';
+                    }
                 }
             }
             
@@ -4064,13 +3574,22 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                 };
                 
                 Object.keys(sections).forEach(sectionId => {
-                    const section = document.querySelector(`#${sectionId} .section h2`);
-                    const desc = document.querySelector(`#${sectionId} .section p`);
+                    const section = document.querySelector(`#${sectionId} .section > h2`);
+                    const desc = document.querySelector(`#${sectionId} .section > p`);
                     
                     if (section && desc) {
                         const content = this.isBusinessMode ? sections[sectionId].business : sections[sectionId].scientific;
-                        section.innerHTML = `<i class="fas fa-${this.getSectionIcon(sectionId)}"></i> ${content.title}`;
+                        section.innerHTML = `${content.title}`;
                         desc.textContent = content.desc;
+                    } else {
+                        // Fallback - try without the > selector
+                        const sectionAlt = document.querySelector(`#${sectionId} .section h2`);
+                        const descAlt = document.querySelector(`#${sectionId} .section p`);
+                        if (sectionAlt && descAlt) {
+                            const content = this.isBusinessMode ? sections[sectionId].business : sections[sectionId].scientific;
+                            sectionAlt.innerHTML = `${content.title}`;
+                            descAlt.textContent = content.desc;
+                        }
                     }
                 });
             }
@@ -4109,9 +3628,9 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                 downloadCards.forEach(card => {
                     const originalText = card.textContent.replace(/^.*?:\s*/, '');
                     if (this.isBusinessMode && businessTitles[originalText]) {
-                        card.innerHTML = `<i class="fas fa-${this.getDownloadIcon(originalText)}"></i> ${businessTitles[originalText]}`;
+                        card.innerHTML = `${businessTitles[originalText]}`;
                     } else if (!this.isBusinessMode && scientificTitles[originalText]) {
-                        card.innerHTML = `<i class="fas fa-${this.getDownloadIcon(scientificTitles[originalText])}"></i> ${scientificTitles[originalText]}`;
+                        card.innerHTML = `${scientificTitles[originalText]}`;
                     }
                 });
             }
@@ -4131,19 +3650,19 @@ Remember: Your growth is real, your patterns are predictable, and your future is
             updateTLDRSummaries() {
                 const tldrContent = {
                     'overview-tldr': {
-                        scientific: 'Visual breakdown showing three key components: Blue dashed line (original sales $40K-$57K), Green solid line (growth trend $8,500/year), and Red solid line (detrended seasonal patterns ±$10K). Reveals how your growth trend dominates sales while seasonal patterns remain consistent and predictable.',
-                        business: 'Your restaurant is growing steadily! The blue line shows your sales increasing from $40K to $57K per week. The green line shows your steady growth trend of $8,500 per year. The red line shows your seasonal ups and downs of about $10K. This means you can plan ahead with confidence!'
+                        scientific: 'Time series decomposition reveals three distinct components: Original sales series ($40K-$57K) exhibiting linear trend, growth component ($8,500/year) representing 85% variance, and detrended seasonal component (±$10K amplitude) with 15% contribution. Trend component dominates variance while seasonal patterns demonstrate statistical significance and predictability.',
+                        business: 'Great news! Your restaurant is growing steadily. Sales went from $40,000 to $57,000 per week. You\'re growing by about $8,500 every year. Your busy and slow seasons vary by about $10,000. This means you can plan ahead and know what to expect!'
                     },
                     'analysis-tldr': {
-                        scientific: 'Advanced decomposition breaks down your sales into three components: trend (85% - $8,500/year growth), seasonal (15% - ±$10,000 amplitude), and residual (<5% - minimal noise). Reveals true seasonal patterns without growth bias.',
-                        business: 'Your sales break down into three parts: 85% is steady growth ($8,500 per year), 15% is seasonal patterns (busy/slow seasons), and less than 5% is random variation. This shows your business is very predictable!'
+                        scientific: 'Additive decomposition model reveals trend component contributes 85% to total variance ($8,500/year linear growth), seasonal component contributes 15% (±$10,000 amplitude with bimodal pattern), and residual component contributes &lt;5% (noise). Model demonstrates excellent fit (R² > 0.95) with minimal autocorrelation in residuals.',
+                        business: 'Your sales break down into three simple parts: 85% comes from steady growth ($8,500 per year), 15% comes from busy and slow seasons, and less than 5% is just random ups and downs. This means your business is very predictable!'
                     },
                     'patterns-tldr': {
-                        scientific: 'Advanced heatmap showing true seasonal patterns after removing growth bias. Dark blue = October/November and April/May peaks, light blue = January/February and July/August troughs. Consistent patterns enable precise 8-12 week advance planning.',
-                        business: 'This heatmap shows your busy and slow seasons clearly. Dark blue areas are your busiest times (October/November and April/May). Light blue areas are your quietest times (January/February and July/August). You can plan 8-12 weeks ahead with confidence!'
+                        scientific: 'Detrended seasonal heatmap analysis reveals bimodal seasonal pattern with primary peaks in October/November (weeks 40-48) and secondary peaks in April/May (weeks 16-22). Trough periods occur in January/February (weeks 1-8) and July/August (weeks 28-35). Pattern consistency enables reliable 8-12 week forecast horizons with ±$3K confidence intervals.',
+                        business: 'This chart shows your busy and slow seasons clearly. Dark blue areas are your busiest times (October/November and April/May). Light blue areas are your quietest times (January/February and July/August). You can see these patterns coming 8-12 weeks ahead, so you can plan ahead!'
                     },
                     'intelligence-tldr': {
-                        scientific: 'Your restaurant is growing strong! $177.86 weekly growth, 66.5% seasonal patterns, 11 peak weeks per year, and manageable 16.3% volatility. You can reliably forecast 12 weeks ahead.',
+                        scientific: 'Statistical analysis confirms significant growth trend ($177.86/week, p &lt; 0.01), strong seasonal component (66.5% seasonal strength index), 11 identified peak weeks annually, and manageable volatility (16.3% coefficient of variation). Reliable 12-week forecast horizon with ±$3,000 confidence intervals.',
                         business: 'Great news! Your restaurant is growing by $178 every week, you have strong seasonal patterns (66.5%), 11 busy weeks each year, and manageable ups and downs (16.3%). You can predict sales 12 weeks ahead reliably!'
                     }
                 };
@@ -4160,8 +3679,8 @@ Remember: Your growth is real, your patterns are predictable, and your future is
             updateAnalysisSections() {
                 const analysisContent = {
                     'overview-analysis': {
-                        scientific: 'This sophisticated time series decomposition reveals your restaurant\'s sales performance broken down into its fundamental components. The blue dashed line shows your actual sales evolution from $40,000 to $57,000 per week, the green solid line reveals the underlying growth trend of $8,500 per year, and the red solid line displays pure seasonal patterns after removing growth bias.',
-                        business: 'This chart breaks down your restaurant\'s performance into three easy-to-understand parts. The blue line shows your actual sales growing from $40,000 to $57,000 per week. The green line shows your steady growth of $8,500 per year. The red line shows your seasonal patterns (busy and slow times) without the growth trend mixed in.'
+                        scientific: 'Time series decomposition using additive model reveals three components: (1) Original series showing linear growth trajectory from $40,000 to $57,000 weekly sales over 107-week period, (2) Trend component exhibiting $8,500/year growth rate with statistical significance (p &lt; 0.01), and (3) Detrended seasonal component showing bimodal pattern with ±$10,000 amplitude. Decomposition confirms trend dominance (85% variance) while seasonal patterns remain statistically significant and predictable.',
+                        business: 'This chart shows your restaurant\'s performance in three simple parts. The blue line shows your actual sales growing from $40,000 to $57,000 per week. The green line shows you\'re growing by about $8,500 every year. The red line shows your busy and slow seasons (without the growth trend), so you can see your seasonal patterns clearly.'
                     }
                 };
 
@@ -4179,6 +3698,15 @@ Remember: Your growth is real, your patterns are predictable, and your future is
             updateInsightCards() {
                 const insightContent = {
                     'patterns-peak-analysis': {
+                        scientific: {
+                            title: 'Peak Season Analysis',
+                            items: [
+                                '<strong>October-November:</strong> Darkest blue intensity indicates peak seasonal demand',
+                                '<strong>April-May:</strong> Medium-dark blue intensity indicates secondary peak period',
+                                '<strong>Peak Reliability:</strong> Consistent timing with minimal variance',
+                                '<strong>Strategic Planning:</strong> 8-12 week advance preparation required for optimal resource allocation'
+                            ]
+                        },
                         business: {
                             title: 'Your Busiest Times',
                             items: [
@@ -4190,6 +3718,15 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                         }
                     },
                     'patterns-trough-analysis': {
+                        scientific: {
+                            title: 'Trough Season Analysis',
+                            items: [
+                                '<strong>January-February:</strong> Lightest blue intensity indicates lowest seasonal demand',
+                                '<strong>July-August:</strong> Light-medium blue intensity indicates secondary trough period',
+                                '<strong>Trough Consistency:</strong> Regular timing with predictable patterns',
+                                '<strong>Cost Management:</strong> Optimal period for strategic cost reduction and resource optimization'
+                            ]
+                        },
                         business: {
                             title: 'Your Quietest Times',
                             items: [
@@ -4290,7 +3827,7 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                         const listElement = element.querySelector('ul');
                         
                         if (titleElement) {
-                            titleElement.innerHTML = `<i class="fas fa-${this.getInsightIcon(content.title)}"></i> ${content.title}`;
+                            titleElement.innerHTML = `${content.title}`;
                         }
                         
                         if (listElement) {
@@ -4545,13 +4082,11 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                 return `
                     <div class="metric-card">
                         <div class="metric-icon">
-                            <i class="fas fa-${metric.icon}"></i>
                         </div>
                         <div class="metric-value">${metric.value}</div>
                         <div class="metric-label">${metric.label}</div>
                         <div class="metric-description">${metric.description}</div>
                         <div class="metric-trend ${metric.trend}">
-                            <i class="fas fa-${this.getTrendIcon(metric.trend)}"></i>
                             ${metric.trendText}
                         </div>
                     </div>
