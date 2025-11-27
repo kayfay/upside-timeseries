@@ -1464,6 +1464,68 @@
                 grid-template-columns: 1fr;
             }
             
+            /* Dynamic Dashboard Responsive */
+            .dynamic-dashboard {
+                padding: 1rem 0;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .dashboard-header h3 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+            
+            .dashboard-controls {
+                width: 100%;
+                display: flex;
+                gap: 0.75rem;
+            }
+            
+            .dashboard-btn {
+                flex: 1;
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .metrics-grid {
+                margin-bottom: 2rem;
+            }
+            
+            .metric-card {
+                width: 100% !important;
+                display: block !important;
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                margin-bottom: 1.5rem;
+                padding: 1.5rem;
+                transform: none !important;
+            }
+            
+            .metric-card:nth-child(3n+2),
+            .metric-card:nth-child(3n) {
+                transform: none !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .metric-value {
+                font-size: 1.75rem;
+            }
+            
+            .metric-label {
+                font-size: 0.95rem;
+            }
+            
+            .metric-description {
+                font-size: 0.85rem;
+            }
+            
             /* Week Analyzer Responsive */
             .week-analyzer-container {
                 margin-top: 2rem;
@@ -1573,6 +1635,36 @@
                 min-width: auto;
                 padding: 0.75rem 0.875rem;
                 font-size: 0.7rem;
+            }
+            
+            /* Dynamic Dashboard - Small Mobile */
+            .dashboard-header h3 {
+                font-size: 1.25rem;
+            }
+            
+            .dashboard-controls {
+                flex-direction: column;
+            }
+            
+            .dashboard-btn {
+                width: 100%;
+            }
+            
+            .metric-card {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .metric-value {
+                font-size: 1.5rem;
+            }
+            
+            .metric-label {
+                font-size: 0.9rem;
+            }
+            
+            .metric-description {
+                font-size: 0.8rem;
             }
             
             .week-analyzer-container {
