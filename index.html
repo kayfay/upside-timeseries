@@ -43,6 +43,11 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
 
         body {
             font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -51,12 +56,16 @@
             background: var(--bg-primary);
             min-height: 100vh;
             font-weight: 400;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 40px 60px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* Header Styles */
@@ -801,6 +810,327 @@
             background: #6d28d9;
         }
 
+        /* Week Analyzer Styles */
+        .week-analyzer-container {
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .analyzer-controls {
+            margin-bottom: 3rem;
+        }
+
+        .date-range-selector {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .date-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .date-input-group label {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .date-input {
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: white;
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 4px 4px 0 rgba(139, 69, 19, 0.15);
+        }
+
+        .analyze-btn {
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 4px 4px 0 rgba(139, 69, 19, 0.2);
+        }
+
+        .analyze-btn:hover {
+            background: var(--primary-dark);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 rgba(139, 69, 19, 0.2);
+        }
+
+        .analyze-btn:active {
+            transform: translate(0, 0);
+            box-shadow: 2px 2px 0 rgba(139, 69, 19, 0.2);
+        }
+
+        .quick-select-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-select-btn {
+            padding: 0.5rem 1.25rem;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .quick-select-btn:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .analyzer-results {
+            margin-top: 3rem;
+        }
+
+        .results-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .results-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .results-period {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .results-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .summary-stat-card {
+            background: white;
+            padding: 2rem;
+            border: 2px solid var(--border-color);
+            border-left: 8px solid var(--primary-color);
+            box-shadow: 6px 6px 0 rgba(139, 69, 19, 0.1);
+            transform: rotate(0.3deg);
+            transition: all 0.3s ease;
+        }
+
+        .summary-stat-card:nth-child(even) {
+            transform: rotate(-0.3deg);
+            border-left: none;
+            border-right: 8px solid var(--secondary-color);
+        }
+
+        .summary-stat-card:hover {
+            transform: rotate(0deg) translateY(-3px);
+            box-shadow: 8px 8px 0 rgba(139, 69, 19, 0.15);
+        }
+
+        .stat-label {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-comparison {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .stat-comparison.positive {
+            color: var(--success-color);
+        }
+
+        .stat-comparison.negative {
+            color: var(--warning-color);
+        }
+
+        .results-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 2.5rem;
+            border: 2px solid var(--border-color);
+            border-left: 8px solid var(--accent-color);
+            box-shadow: 6px 6px 0 rgba(139, 69, 19, 0.1);
+            transform: rotate(-0.5deg);
+        }
+
+        .detail-card:nth-child(even) {
+            transform: rotate(0.5deg);
+            border-left: none;
+            border-right: 8px solid var(--secondary-color);
+        }
+
+        .detail-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .week-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .week-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .week-item:hover {
+            background: var(--bg-tertiary);
+            border-left-color: var(--primary-color);
+        }
+
+        .week-item.busy {
+            border-left-color: var(--success-color);
+        }
+
+        .week-item.slow {
+            border-left-color: var(--warning-color);
+        }
+
+        .week-item-date {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .week-item-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .week-item-zscore {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .percentile-info {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .percentile-bar {
+            width: 100%;
+            height: 30px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .percentile-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            transition: width 0.5s ease;
+        }
+
+        .analyzer-loading {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .analyzer-error {
+            padding: 2rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--warning-color);
+            border-left: 8px solid var(--warning-color);
+            color: var(--text-primary);
+            text-align: center;
+        }
+
         /* Report Modal Styles */
         .report-modal {
             background: var(--bg-primary);
@@ -1056,10 +1386,17 @@
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
             }
             
             .header h1 {
                 font-size: 2rem;
+                line-height: 1.2;
             }
             
             .header-content {
@@ -1078,6 +1415,21 @@
                 font-size: 0.85rem;
             }
             
+            .section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .section h2 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+            }
+            
+            .section p {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -1093,6 +1445,7 @@
                 padding: 0;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
+                margin-bottom: 1.5rem;
             }
             
             .nav-tab {
@@ -1100,6 +1453,7 @@
                 max-width: none;
                 padding: 0.875rem 1.25rem;
                 font-size: 0.8rem;
+                white-space: nowrap;
             }
             
             .insights-grid {
@@ -1109,31 +1463,154 @@
             .download-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Week Analyzer Responsive */
+            .week-analyzer-container {
+                margin-top: 2rem;
+                padding: 1rem 0;
+            }
+            
+            .analyzer-controls {
+                margin-bottom: 2rem;
+            }
+            
+            .date-range-selector {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .date-input-group {
+                width: 100%;
+            }
+            
+            .date-input {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .analyze-btn {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .quick-select-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .quick-select-btn {
+                width: 100%;
+                padding: 0.75rem;
+            }
+            
+            .results-summary {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .summary-stat-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            .results-details {
+                gap: 1.5rem;
+            }
+            
+            .detail-card {
+                padding: 1.5rem;
+            }
+            
+            .results-header h3 {
+                font-size: 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 0.75rem;
             }
             
             .header {
-                padding: 1.5rem;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
             }
             
             .section {
-                padding: 1.5rem;
+                padding: 1rem 0.75rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+            
+            .section p {
+                font-size: 0.85rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
             
             .nav-tabs {
                 gap: 0;
                 padding: 0;
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
             }
             
             .nav-tab {
                 min-width: auto;
-                padding: 0.75rem 1rem;
-                font-size: 0.75rem;
+                padding: 0.75rem 0.875rem;
+                font-size: 0.7rem;
+            }
+            
+            .week-analyzer-container {
+                margin-top: 1.5rem;
+                padding: 0.5rem 0;
+            }
+            
+            .analyzer-controls {
+                margin-bottom: 1.5rem;
+            }
+            
+            .date-range-selector {
+                margin-bottom: 1rem;
+            }
+            
+            .results-summary {
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .summary-stat-card {
+                padding: 1rem;
+            }
+            
+            .stat-value {
+                font-size: 1.25rem;
+            }
+            
+            .stat-label {
+                font-size: 0.7rem;
+            }
+            
+            .detail-card {
+                padding: 1rem;
+            }
+            
+            .results-header h3 {
+                font-size: 1.25rem;
             }
         }
 
@@ -1349,6 +1826,9 @@
             </button>
             <button class="nav-tab" data-tab="downloads">
                 Downloads
+            </button>
+            <button class="nav-tab" data-tab="week-analyzer">
+                Week Analyzer
             </button>
         </div>
 
@@ -1611,6 +2091,94 @@
 
 
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Week Analyzer Section -->
+        <div id="week-analyzer" class="content-section">
+            <div class="section">
+                <h2>Week Performance Analyzer</h2>
+                <p id="analyzer-description">Select any date to see if that week was busy or slow compared to your restaurant's average performance.</p>
+                
+                <div class="week-analyzer-container">
+                    <div class="analyzer-controls">
+                        <div class="date-range-selector">
+                            <div class="date-input-group">
+                                <label for="week-date">Select Week</label>
+                                <input type="date" id="week-date" class="date-input">
+                            </div>
+                            <button id="analyze-weeks" class="analyze-btn">Analyze Week</button>
+                        </div>
+                        <div class="quick-select-buttons">
+                            <button class="quick-select-btn" data-offset="0">This Week</button>
+                            <button class="quick-select-btn" data-offset="1">Last Week</button>
+                            <button class="quick-select-btn" data-offset="2">2 Weeks Ago</button>
+                            <button class="quick-select-btn" data-offset="4">4 Weeks Ago</button>
+                        </div>
+                    </div>
+                    
+                    <div id="analyzer-results" class="analyzer-results" style="display: none;">
+                        <div class="results-header">
+                            <h3 id="results-title">Analysis Results</h3>
+                            <div class="results-period" id="results-period"></div>
+                        </div>
+                        
+                        <div class="results-summary">
+                            <div class="summary-stat-card">
+                                <div class="stat-label" id="stat-label-sales">Week Sales</div>
+                                <div class="stat-value" id="stat-average">$0</div>
+                                <div class="stat-comparison" id="stat-average-comp"></div>
+                            </div>
+                            <div class="summary-stat-card">
+                                <div class="stat-label" id="stat-label-diff">Difference</div>
+                                <div class="stat-value" id="stat-total">$0</div>
+                                <div class="stat-comparison" id="stat-total-comp"></div>
+                            </div>
+                            <div class="summary-stat-card">
+                                <div class="stat-label" id="stat-label-rating">Performance Rating</div>
+                                <div class="stat-value" id="stat-rating">-</div>
+                                <div class="stat-comparison" id="stat-rating-comp"></div>
+                            </div>
+                            <div class="summary-stat-card" id="stat-card-zscore" style="display: none;">
+                                <div class="stat-label" id="stat-label-zscore">Z-Score</div>
+                                <div class="stat-value" id="stat-zscore">0.00</div>
+                                <div class="stat-comparison" id="stat-zscore-comp"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-details">
+                            <div class="detail-card">
+                                <h4 id="detail-title-business">What This Means</h4>
+                                <h4 id="detail-title-scientific" style="display: none;">Statistical Analysis</h4>
+                                <div id="detail-content-business">
+                                    <p>Your selected period shows how your restaurant performed compared to your overall average.</p>
+                                </div>
+                                <div id="detail-content-scientific" style="display: none;">
+                                    <p>Statistical analysis of the selected period relative to the full dataset distribution.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <h4 id="historical-context-title">Historical Context</h4>
+                                <div id="historical-context" class="historical-context"></div>
+                            </div>
+                            
+                            <div class="detail-card">
+                                <h4 id="percentile-title">Percentile Ranking</h4>
+                                <div id="percentile-info" class="percentile-info"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="analyzer-loading" class="analyzer-loading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Analyzing your data...</p>
+                    </div>
+                    
+                    <div id="analyzer-error" class="analyzer-error" style="display: none;">
+                        <p>Unable to load data. Please ensure weekly_sales_data.json is available.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2025,12 +2593,746 @@
                 });
             }
         }
+
+        // Week Analyzer Class
+        class WeekAnalyzer {
+            constructor() {
+                this.salesData = null;
+                this.statistics = null;
+                this.isBusinessMode = true;
+                this.lastResults = null;
+                this.lastSelectedDate = null;
+                this.lastIsFutureDate = false;
+                this.lastMatchType = null;
+                this.lastWeekData = null;
+                this.init();
+            }
+
+            async init() {
+                await this.loadData();
+                this.setupEventListeners();
+                this.setupQuickSelect();
+                // Set initial language mode and update labels
+                if (window.languageToggle) {
+                    this.isBusinessMode = window.languageToggle.isBusinessMode;
+                }
+                this.updateStatLabels();
+                this.updateLanguageMode();
+            }
+
+            async loadData() {
+                try {
+                    // Add cache-busting parameter to ensure fresh data
+                    const cacheBuster = new Date().getTime();
+                    const response = await fetch(`weekly_sales_data.json?t=${cacheBuster}`, {
+                        cache: 'no-cache'
+                    });
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    const data = await response.json();
+                    console.log('Raw JSON data:', data);
+                    
+                    // Validate data structure
+                    if (!data || !data.data || !Array.isArray(data.data)) {
+                        throw new Error('Invalid JSON structure: missing or invalid "data" array');
+                    }
+                    if (!data.statistics) {
+                        throw new Error('Invalid JSON structure: missing "statistics" object');
+                    }
+                    
+                    this.salesData = data.data.map(item => ({
+                        date: new Date(item.date),
+                        value: parseFloat(item.value)
+                    })).filter(item => !isNaN(item.date.getTime()) && !isNaN(item.value));
+                    
+                    this.statistics = data.statistics;
+                    console.log('Sales data loaded:', this.salesData.length, 'weeks');
+                    console.log('Statistics:', this.statistics);
+                    
+                    if (this.salesData.length === 0) {
+                        throw new Error('No valid data found in JSON file');
+                    }
+                    
+                    document.getElementById('analyzer-error').style.display = 'none';
+                } catch (error) {
+                    console.error('Error loading sales data:', error);
+                    const errorDiv = document.getElementById('analyzer-error');
+                    errorDiv.innerHTML = `
+                        <p><strong>Error loading data file.</strong></p>
+                        <p>Error: ${error.message}</p>
+                        <p>Please ensure weekly_sales_data.json exists and is valid JSON.</p>
+                        <p>To generate it, run in R or RStudio:<br>
+                        <code>source("export_weekly_data_json.R")</code></p>
+                        <p>Or from command line:<br>
+                        <code>Rscript export_weekly_data_json.R</code></p>
+                    `;
+                    errorDiv.style.display = 'block';
+                }
+            }
+
+            setupEventListeners() {
+                document.getElementById('analyze-weeks').addEventListener('click', () => {
+                    this.analyzePeriod();
+                });
+
+                // Listen for language toggle changes
+                if (window.languageToggle) {
+                    const observer = new MutationObserver(() => {
+                        this.isBusinessMode = window.languageToggle.isBusinessMode;
+                        this.updateLanguageMode();
+                    });
+                    const toggleBtn = document.querySelector('.toggle-btn');
+                    if (toggleBtn) {
+                        observer.observe(toggleBtn, { attributes: true, attributeFilter: ['class'] });
+                    }
+                }
+            }
+
+            setupQuickSelect() {
+                document.querySelectorAll('.quick-select-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const offset = parseInt(btn.getAttribute('data-offset'));
+                        this.setQuickDate(offset);
+                    });
+                });
+            }
+
+            setQuickDate(weeksAgo) {
+                if (!this.salesData || this.salesData.length === 0) return;
+                
+                // Get the most recent week in the data
+                const lastWeek = new Date(this.salesData[this.salesData.length - 1].date);
+                const targetDate = new Date(lastWeek);
+                targetDate.setDate(targetDate.getDate() - (weeksAgo * 7));
+
+                // Find the closest week in the data
+                let closestWeek = this.salesData[0];
+                let minDiff = Math.abs(targetDate - closestWeek.date);
+                
+                this.salesData.forEach(item => {
+                    const diff = Math.abs(targetDate - item.date);
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        closestWeek = item;
+                    }
+                });
+
+                document.getElementById('week-date').value = this.formatDateForInput(closestWeek.date);
+            }
+
+            formatDateForInput(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            analyzePeriod() {
+                const weekDate = document.getElementById('week-date').value;
+
+                if (!weekDate) {
+                    alert('Please select a date');
+                    return;
+                }
+
+                if (!this.salesData || !this.statistics) {
+                    alert('Data not loaded. Please refresh the page.');
+                    return;
+                }
+
+                const selectedDate = new Date(weekDate);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const isFutureDate = selectedDate > today;
+                
+                // Find the best historical match
+                let closestWeek = null;
+                let matchType = 'exact'; // 'exact', 'same_week_of_year', 'closest'
+                
+                // First, try to find exact match (within 3 days)
+                let exactMatch = null;
+                let exactDiff = Infinity;
+                this.salesData.forEach(item => {
+                    const diff = Math.abs(selectedDate - item.date);
+                    if (diff < exactDiff && diff <= 3 * 24 * 60 * 60 * 1000) {
+                        exactDiff = diff;
+                        exactMatch = item;
+                    }
+                });
+                
+                if (exactMatch) {
+                    closestWeek = exactMatch;
+                    matchType = 'exact';
+                } else {
+                    // Try to find same week of year from previous years (better for seasonal predictions)
+                    const selectedWeek = this.getWeekOfYear(selectedDate);
+                    const selectedMonth = selectedDate.getMonth();
+                    
+                    let sameWeekMatches = this.salesData.filter(item => {
+                        const itemWeek = this.getWeekOfYear(item.date);
+                        const itemMonth = item.date.getMonth();
+                        // Match same week of year and same month (within 1 month for flexibility)
+                        return Math.abs(itemWeek - selectedWeek) <= 1 && 
+                               Math.abs(itemMonth - selectedMonth) <= 1;
+                    });
+                    
+                    if (sameWeekMatches.length > 0) {
+                        // Use the average of matching weeks for better prediction
+                        const avgValue = sameWeekMatches.reduce((sum, item) => sum + item.value, 0) / sameWeekMatches.length;
+                        // Find the week closest to the average
+                        sameWeekMatches.sort((a, b) => Math.abs(a.value - avgValue) - Math.abs(b.value - avgValue));
+                        closestWeek = {
+                            date: selectedDate, // Use selected date for display
+                            value: avgValue,
+                            isPrediction: true,
+                            basedOnWeeks: sameWeekMatches
+                        };
+                        matchType = 'same_week_of_year';
+                    } else {
+                        // Fallback: find closest historical week
+                        let closestHistoricalWeek = null;
+                        let minDiff = Infinity;
+                        this.salesData.forEach(item => {
+                            const diff = Math.abs(selectedDate - item.date);
+                            if (diff < minDiff) {
+                                minDiff = diff;
+                                closestHistoricalWeek = item;
+                            }
+                        });
+                        if (closestHistoricalWeek) {
+                            if (isFutureDate || minDiff > 3 * 24 * 60 * 60 * 1000) {
+                                // Create a prediction object for future dates or dates far from data
+                                closestWeek = {
+                                    date: selectedDate,
+                                    value: closestHistoricalWeek.value,
+                                    isPrediction: true,
+                                    basedOnWeeks: [closestHistoricalWeek]
+                                };
+                            } else {
+                                closestWeek = closestHistoricalWeek;
+                            }
+                        }
+                        matchType = 'closest';
+                    }
+                }
+
+                if (!closestWeek) {
+                    alert('No data available. Please ensure sales data is loaded.');
+                    return;
+                }
+
+                // Show loading
+                const loadingDiv = document.getElementById('analyzer-loading');
+                const resultsDiv = document.getElementById('analyzer-results');
+                const errorDiv = document.getElementById('analyzer-error');
+                
+                loadingDiv.style.display = 'block';
+                resultsDiv.style.display = 'none';
+                errorDiv.style.display = 'none';
+
+                // Set a timeout to prevent infinite loading
+                const timeoutId = setTimeout(() => {
+                    loadingDiv.style.display = 'none';
+                    errorDiv.innerHTML = '<p><strong>Analysis timed out.</strong> Please try again or refresh the page.</p>';
+                    errorDiv.style.display = 'block';
+                    console.error('Analysis timeout after 10 seconds');
+                }, 10000);
+
+                // Process analysis with error handling
+                try {
+                    // Simulate async processing (but actually do it immediately)
+                    setTimeout(() => {
+                        try {
+                            clearTimeout(timeoutId);
+                            const results = this.calculateStatistics(closestWeek);
+                            
+                            if (!results) {
+                                throw new Error('Failed to calculate statistics');
+                            }
+                            
+                            // Store results for language mode updates
+                            this.lastResults = results;
+                            this.lastSelectedDate = selectedDate;
+                            this.lastIsFutureDate = isFutureDate;
+                            this.lastMatchType = matchType;
+                            this.lastWeekData = closestWeek;
+                            
+                            this.displayResults(results, selectedDate, isFutureDate, matchType, closestWeek);
+                            loadingDiv.style.display = 'none';
+                            resultsDiv.style.display = 'block';
+                        } catch (error) {
+                            clearTimeout(timeoutId);
+                            console.error('Error during analysis:', error);
+                            loadingDiv.style.display = 'none';
+                            errorDiv.innerHTML = `<p><strong>Error during analysis:</strong> ${error.message}</p><p>Please try again or refresh the page.</p>`;
+                            errorDiv.style.display = 'block';
+                        }
+                    }, 100); // Reduced from 300ms to 100ms for faster response
+                } catch (error) {
+                    clearTimeout(timeoutId);
+                    console.error('Error setting up analysis:', error);
+                    loadingDiv.style.display = 'none';
+                    errorDiv.innerHTML = `<p><strong>Error:</strong> ${error.message}</p>`;
+                    errorDiv.style.display = 'block';
+                }
+            }
+            
+            getWeekOfYear(date) {
+                // Get ISO week number
+                const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+                const dayNum = d.getUTCDay() || 7;
+                d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+                const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+                return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+            }
+
+            calculateStatistics(weekData) {
+                try {
+                    if (!weekData) {
+                        throw new Error('No week data provided');
+                    }
+
+                    if (!this.salesData || !this.statistics) {
+                        throw new Error('Sales data or statistics not loaded');
+                    }
+
+                    const weekValue = weekData.value;
+                    const weekDate = weekData.date;
+                    
+                    if (typeof weekValue !== 'number' || isNaN(weekValue)) {
+                        throw new Error('Invalid week value');
+                    }
+                    
+                    if (!(weekDate instanceof Date) || isNaN(weekDate.getTime())) {
+                        throw new Error('Invalid week date');
+                    }
+                    
+                    const isPrediction = weekData.isPrediction || false;
+                    const basedOnWeeks = weekData.basedOnWeeks || (weekData.basedOnWeek ? [weekData.basedOnWeek] : null);
+
+                // Calculate z-score (how many standard deviations from the mean)
+                const zScore = (weekValue - this.statistics.mean) / this.statistics.sd;
+
+                // Calculate percentile
+                const allValues = this.salesData.map(item => item.value).sort((a, b) => a - b);
+                const percentile = (allValues.filter(v => v <= weekValue).length / allValues.length) * 100;
+
+                // Determine performance rating
+                let rating, ratingClass;
+                if (zScore > 1.5) {
+                    rating = 'Exceptionally Busy';
+                    ratingClass = 'positive';
+                } else if (zScore > 0.5) {
+                    rating = 'Busy';
+                    ratingClass = 'positive';
+                } else if (zScore > -0.5) {
+                    rating = 'Average';
+                    ratingClass = '';
+                } else if (zScore > -1.5) {
+                    rating = 'Slow';
+                    ratingClass = 'negative';
+                } else {
+                    rating = 'Very Slow';
+                    ratingClass = 'negative';
+                }
+
+                // Find similar weeks (within 5% of value)
+                const similarWeeks = this.salesData.filter(item => {
+                    const diff = Math.abs(item.value - weekValue) / weekValue;
+                    return diff <= 0.05;
+                }).slice(0, 5);
+
+                // Find previous and next weeks for context (only if exact match)
+                let previousWeek = null;
+                let nextWeek = null;
+                if (!isPrediction) {
+                    const weekIndex = this.salesData.findIndex(item => item.date.getTime() === weekDate.getTime());
+                    previousWeek = weekIndex > 0 ? this.salesData[weekIndex - 1] : null;
+                    nextWeek = weekIndex < this.salesData.length - 1 ? this.salesData[weekIndex + 1] : null;
+                }
+
+                    return {
+                        weekValue,
+                        weekDate,
+                        zScore,
+                        percentile,
+                        rating,
+                        ratingClass,
+                        similarWeeks,
+                        previousWeek,
+                        nextWeek,
+                        isPrediction,
+                        basedOnWeeks,
+                        comparison: {
+                            valueDiff: weekValue - this.statistics.mean,
+                            percentDiff: ((weekValue - this.statistics.mean) / this.statistics.mean) * 100
+                        }
+                    };
+                } catch (error) {
+                    console.error('Error in calculateStatistics:', error);
+                    throw error; // Re-throw to be caught by caller
+                }
+            }
+
+            displayResults(results, selectedDate, isFutureDate, matchType, weekData) {
+                if (!results) {
+                    alert('No data found for the selected week');
+                    return;
+                }
+
+                // Helper function to safely get element
+                const getElement = (id) => {
+                    const el = document.getElementById(id);
+                    if (!el) {
+                        console.error(`Element with id "${id}" not found`);
+                    }
+                    return el;
+                };
+
+                // Update header with prediction indicator
+                let periodText = `Week of ${this.formatDate(selectedDate)}`;
+                if (results.isPrediction) {
+                    periodText += ' (Predicted)';
+                }
+                const resultsPeriod = getElement('results-period');
+                if (resultsPeriod) resultsPeriod.textContent = periodText;
+
+                // Update summary stats
+                const statAverage = getElement('stat-average');
+                if (statAverage) statAverage.textContent = this.formatCurrency(results.weekValue);
+                let salesCompText = this.isBusinessMode
+                    ? `${results.comparison.percentDiff >= 0 ? '+' : ''}${results.comparison.percentDiff.toFixed(1)}% ${results.comparison.percentDiff >= 0 ? 'above' : 'below'} your average`
+                    : `${results.comparison.percentDiff >= 0 ? '+' : ''}${results.comparison.percentDiff.toFixed(1)}% deviation from mean`;
+                if (results.isPrediction) {
+                    salesCompText += this.isBusinessMode ? ' (expected)' : ' (predicted)';
+                }
+                const statAverageComp = getElement('stat-average-comp');
+                if (statAverageComp) {
+                    statAverageComp.textContent = salesCompText;
+                    statAverageComp.className = `stat-comparison ${results.comparison.percentDiff >= 0 ? 'positive' : 'negative'}`;
+                }
+
+                const statTotal = getElement('stat-total');
+                if (statTotal) statTotal.textContent = this.formatCurrency(Math.abs(results.comparison.valueDiff));
+                let diffCompText = this.isBusinessMode
+                    ? `${results.comparison.valueDiff >= 0 ? '+' : '-'}${this.formatCurrency(Math.abs(results.comparison.valueDiff))} ${results.comparison.valueDiff >= 0 ? 'more' : 'less'} than average`
+                    : `${results.comparison.valueDiff >= 0 ? '+' : ''}${this.formatCurrency(results.comparison.valueDiff)} deviation from μ`;
+                if (results.isPrediction) {
+                    diffCompText += this.isBusinessMode ? ' (expected)' : ' (predicted)';
+                }
+                const statTotalComp = getElement('stat-total-comp');
+                if (statTotalComp) {
+                    statTotalComp.textContent = diffCompText;
+                    statTotalComp.className = `stat-comparison ${results.comparison.valueDiff >= 0 ? 'positive' : 'negative'}`;
+                }
+
+                const statRating = getElement('stat-rating');
+                if (statRating) {
+                    // Use business-friendly rating text
+                    const ratingText = this.isBusinessMode 
+                        ? this.getBusinessRating(results.rating)
+                        : results.rating;
+                    statRating.textContent = ratingText;
+                }
+                let ratingCompText = this.isBusinessMode 
+                    ? `${results.isPrediction ? 'Expected' : 'Actual'} performance level`
+                    : `Z-score: ${results.zScore.toFixed(2)}`;
+                if (results.isPrediction && !this.isBusinessMode) {
+                    ratingCompText += ' (based on historical data)';
+                }
+                const statRatingComp = getElement('stat-rating-comp');
+                if (statRatingComp) statRatingComp.textContent = ratingCompText;
+
+                // Only update Z-Score if in scientific mode (card is hidden in business mode)
+                if (!this.isBusinessMode) {
+                    const statZscore = getElement('stat-zscore');
+                    if (statZscore) statZscore.textContent = results.zScore.toFixed(2);
+                    let zScoreText = this.interpretZScore(results.zScore);
+                    if (results.isPrediction) {
+                        zScoreText += ' (predicted)';
+                    }
+                    const statZscoreComp = getElement('stat-zscore-comp');
+                    if (statZscoreComp) statZscoreComp.textContent = zScoreText;
+                }
+
+                // Update details
+                this.updateDetails(results, isFutureDate, matchType, weekData);
+                this.updateHistoricalContext(results, isFutureDate, matchType, weekData);
+                this.updatePercentileInfo(results.percentile, results.zScore, results.isPrediction);
+            }
+
+            formatDate(date) {
+                return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            }
+
+            formatCurrency(value) {
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(value);
+            }
+
+            interpretZScore(zScore) {
+                if (Math.abs(zScore) < 0.5) return 'Within normal range';
+                if (Math.abs(zScore) < 1.0) return 'Moderately different';
+                if (Math.abs(zScore) < 1.5) return 'Significantly different';
+                if (Math.abs(zScore) < 2.0) return 'Highly unusual';
+                return 'Extremely unusual';
+            }
+
+            getBusinessZScoreInterpretation(zScore) {
+                if (Math.abs(zScore) < 0.5) return 'Normal week';
+                if (Math.abs(zScore) < 1.0) return 'Slightly unusual';
+                if (Math.abs(zScore) < 1.5) return 'Notable difference';
+                if (Math.abs(zScore) < 2.0) return 'Unusual week';
+                return 'Very unusual week';
+            }
+
+            getBusinessRating(rating) {
+                const ratingMap = {
+                    'Exceptionally Busy': 'Very Busy',
+                    'Busy': 'Busy',
+                    'Average': 'Average',
+                    'Slow': 'Slow',
+                    'Very Slow': 'Very Slow'
+                };
+                return ratingMap[rating] || rating;
+            }
+
+            updateStatLabels() {
+                const salesLabel = document.getElementById('stat-label-sales');
+                const diffLabel = document.getElementById('stat-label-diff');
+                const ratingLabel = document.getElementById('stat-label-rating');
+                const zscoreLabel = document.getElementById('stat-label-zscore');
+                const zscoreCard = document.getElementById('stat-card-zscore');
+                const historicalTitle = document.getElementById('historical-context-title');
+                const percentileTitle = document.getElementById('percentile-title');
+
+                if (this.isBusinessMode) {
+                    if (salesLabel) salesLabel.textContent = 'Week Sales';
+                    if (diffLabel) diffLabel.textContent = 'Difference from Average';
+                    if (ratingLabel) ratingLabel.textContent = 'Performance Level';
+                    // Hide Z-Score card in business view
+                    if (zscoreCard) zscoreCard.style.display = 'none';
+                    if (historicalTitle) historicalTitle.textContent = 'What to Expect';
+                    if (percentileTitle) percentileTitle.textContent = 'How This Week Compares';
+                } else {
+                    if (salesLabel) salesLabel.textContent = 'Weekly Revenue';
+                    if (diffLabel) diffLabel.textContent = 'Deviation from Mean';
+                    if (ratingLabel) ratingLabel.textContent = 'Performance Rating';
+                    if (zscoreLabel) zscoreLabel.textContent = 'Z-Score';
+                    // Show Z-Score card in scientific view
+                    if (zscoreCard) zscoreCard.style.display = 'block';
+                    if (historicalTitle) historicalTitle.textContent = 'Historical Context';
+                    if (percentileTitle) percentileTitle.textContent = 'Percentile Ranking';
+                }
+            }
+
+            updateDetails(results, isFutureDate, matchType, weekData) {
+                const businessContent = document.getElementById('detail-content-business');
+                const scientificContent = document.getElementById('detail-content-scientific');
+                const businessTitle = document.getElementById('detail-title-business');
+                const scientificTitle = document.getElementById('detail-title-scientific');
+
+                if (!businessContent || !scientificContent || !businessTitle || !scientificTitle) {
+                    console.error('One or more detail elements not found');
+                    return;
+                }
+
+                if (this.isBusinessMode) {
+                    businessContent.style.display = 'block';
+                    scientificContent.style.display = 'none';
+                    businessTitle.style.display = 'block';
+                    scientificTitle.style.display = 'none';
+
+                    let predictionNote = '';
+                    if (results.isPrediction) {
+                        if (results.basedOnWeeks && results.basedOnWeeks.length > 1) {
+                            predictionNote = `<p><strong>📊 Prediction Method:</strong> This prediction is based on the average of ${results.basedOnWeeks.length} similar weeks from previous years (same time of year). This gives you a better sense of what to expect based on seasonal patterns.</p>`;
+                        } else if (results.basedOnWeeks && results.basedOnWeeks.length === 1) {
+                            predictionNote = `<p><strong>📊 Prediction Method:</strong> This prediction is based on the closest historical week in your data. Use this as a baseline expectation for planning.</p>`;
+                        } else {
+                            predictionNote = `<p><strong>📊 Prediction Method:</strong> This prediction is based on historical data patterns. Use this to anticipate whether it will be a busy or slow week.</p>`;
+                        }
+                    }
+
+                    const verb = results.isPrediction ? 'is expected to have' : 'had';
+                    const tense = results.isPrediction ? 'will be' : 'was';
+                    
+                    businessContent.innerHTML = `
+                        ${predictionNote}
+                        <p><strong>Performance ${results.isPrediction ? 'Prediction' : 'Summary'}:</strong> This week ${verb} sales of ${this.formatCurrency(results.weekValue)}, which ${results.isPrediction ? 'would be' : 'is'} ${Math.abs(results.comparison.percentDiff).toFixed(1)}% ${results.comparison.percentDiff >= 0 ? 'above' : 'below'} your restaurant's overall average of ${this.formatCurrency(this.statistics.mean)}.</p>
+                        <p><strong>What This Means:</strong> This ${tense} expected to be a ${results.rating.toLowerCase()} week for your restaurant. ${results.comparison.percentDiff >= 0 ? 'You can expect better than usual performance, which is great news!' : 'This may be slower than your typical performance, so plan accordingly.'}</p>
+                        <p><strong>Context:</strong> Your average weekly sales across all ${this.statistics.total_weeks} weeks is ${this.formatCurrency(this.statistics.mean)}, so this week ${results.isPrediction ? 'is expected to be' : 'was'} ${results.comparison.valueDiff >= 0 ? 'above' : 'below'} average by ${this.formatCurrency(Math.abs(results.comparison.valueDiff))}.</p>
+                    `;
+                } else {
+                    businessContent.style.display = 'none';
+                    scientificContent.style.display = 'block';
+                    businessTitle.style.display = 'none';
+                    scientificTitle.style.display = 'block';
+
+                    let predictionNote = '';
+                    if (results.isPrediction) {
+                        if (results.basedOnWeeks && results.basedOnWeeks.length > 1) {
+                            predictionNote = `<p><strong>Prediction Methodology:</strong> Estimated value derived from averaging ${results.basedOnWeeks.length} historical observations from the same week-of-year across previous years. This accounts for seasonal variation in the time series.</p>`;
+                        } else {
+                            predictionNote = `<p><strong>Prediction Methodology:</strong> Estimated value based on nearest historical observation. This provides a baseline expectation but does not account for seasonal patterns.</p>`;
+                        }
+                    }
+
+                    const verb = results.isPrediction ? 'is predicted to show' : 'shows';
+                    
+                    scientificContent.innerHTML = `
+                        ${predictionNote}
+                        <p><strong>Statistical Analysis:</strong> The selected week ${verb} weekly sales of ${this.formatCurrency(results.weekValue)} (μ = ${this.formatCurrency(this.statistics.mean)}, σ = ${this.formatCurrency(this.statistics.sd)}).</p>
+                        <p><strong>Z-Score Interpretation:</strong> The week has a z-score of ${results.zScore.toFixed(2)}, indicating it ${results.isPrediction ? 'would be' : 'is'} ${Math.abs(results.zScore).toFixed(2)} standard deviations ${results.zScore >= 0 ? 'above' : 'below'} the population mean. This places it at the ${results.percentile.toFixed(1)}th percentile of the distribution.</p>
+                        <p><strong>Effect Size:</strong> The difference of ${this.formatCurrency(Math.abs(results.comparison.valueDiff))} represents a ${Math.abs(results.comparison.percentDiff).toFixed(1)}% deviation from the mean, which is ${Math.abs(results.zScore) < 1 ? 'not statistically significant' : Math.abs(results.zScore) < 2 ? 'moderately significant' : 'highly significant'}.</p>
+                    `;
+                }
+            }
+
+            updateHistoricalContext(results, isFutureDate, matchType, weekData) {
+                const container = document.getElementById('historical-context');
+                if (!container) {
+                    console.error('Element with id "historical-context" not found');
+                    return;
+                }
+                
+                let contextHTML = '';
+
+                if (results.isPrediction && results.basedOnWeeks && results.basedOnWeeks.length > 0) {
+                    if (this.isBusinessMode) {
+                        contextHTML += `<p><strong>Based on Similar Weeks:</strong> This prediction uses ${results.basedOnWeeks.length} similar week${results.basedOnWeeks.length !== 1 ? 's' : ''} from past years around the same time:</p><ul>`;
+                        results.basedOnWeeks.slice(0, 5).forEach(week => {
+                            contextHTML += `<li>${this.formatDate(week.date)}: ${this.formatCurrency(week.value)}</li>`;
+                        });
+                        if (results.basedOnWeeks.length > 5) {
+                            contextHTML += `<li><em>... and ${results.basedOnWeeks.length - 5} more similar weeks</em></li>`;
+                        }
+                        contextHTML += '</ul>';
+                        if (results.basedOnWeeks.length > 1) {
+                            const avgValue = results.basedOnWeeks.reduce((sum, w) => sum + w.value, 0) / results.basedOnWeeks.length;
+                            contextHTML += `<p><strong>Average of these weeks:</strong> ${this.formatCurrency(avgValue)} - This is what we expect for your selected week.</p>`;
+                        }
+                    } else {
+                        contextHTML += `<p><strong>Historical Observations:</strong> ${results.basedOnWeeks.length} observation${results.basedOnWeeks.length !== 1 ? 's' : ''} used for prediction:</p><ul>`;
+                        results.basedOnWeeks.slice(0, 5).forEach(week => {
+                            const weekDiff = ((week.value - results.weekValue) / results.weekValue) * 100;
+                            contextHTML += `<li>${this.formatDate(week.date)} - ${this.formatCurrency(week.value)} (${weekDiff >= 0 ? '+' : ''}${weekDiff.toFixed(1)}% deviation from predicted value)</li>`;
+                        });
+                        if (results.basedOnWeeks.length > 5) {
+                            contextHTML += `<li><em>... and ${results.basedOnWeeks.length - 5} additional observations</em></li>`;
+                        }
+                        contextHTML += '</ul>';
+                        if (results.basedOnWeeks.length > 1) {
+                            const avgValue = results.basedOnWeeks.reduce((sum, w) => sum + w.value, 0) / results.basedOnWeeks.length;
+                            contextHTML += `<p><strong>Mean of historical observations:</strong> ${this.formatCurrency(avgValue)} (used as prediction estimate)</p>`;
+                        }
+                    }
+                } else if (results.previousWeek || results.nextWeek) {
+                    if (results.previousWeek) {
+                        const prevDiff = ((results.weekValue - results.previousWeek.value) / results.previousWeek.value) * 100;
+                        if (this.isBusinessMode) {
+                            contextHTML += `<p><strong>Previous Week:</strong> ${this.formatDate(results.previousWeek.date)} had sales of ${this.formatCurrency(results.previousWeek.value)}, which is ${Math.abs(prevDiff).toFixed(1)}% ${prevDiff >= 0 ? 'less' : 'more'} than this week.</p>`;
+                        } else {
+                            contextHTML += `<p><strong>Previous Week:</strong> ${this.formatDate(results.previousWeek.date)} - ${this.formatCurrency(results.previousWeek.value)} (${prevDiff >= 0 ? '+' : ''}${prevDiff.toFixed(1)}% change)</p>`;
+                        }
+                    }
+
+                    if (results.nextWeek) {
+                        const nextDiff = ((results.nextWeek.value - results.weekValue) / results.weekValue) * 100;
+                        if (this.isBusinessMode) {
+                            contextHTML += `<p><strong>Next Week:</strong> ${this.formatDate(results.nextWeek.date)} had sales of ${this.formatCurrency(results.nextWeek.value)}, which is ${Math.abs(nextDiff).toFixed(1)}% ${nextDiff >= 0 ? 'more' : 'less'} than this week.</p>`;
+                        } else {
+                            contextHTML += `<p><strong>Next Week:</strong> ${this.formatDate(results.nextWeek.date)} - ${this.formatCurrency(results.nextWeek.value)} (${nextDiff >= 0 ? '+' : ''}${nextDiff.toFixed(1)}% change)</p>`;
+                        }
+                    }
+                }
+
+                if (results.similarWeeks && results.similarWeeks.length > 0) {
+                    if (this.isBusinessMode) {
+                        contextHTML += `<p><strong>Similar Weeks:</strong> We found ${results.similarWeeks.length} other week${results.similarWeeks.length !== 1 ? 's' : ''} with similar sales (within 5%):</p><ul>`;
+                        results.similarWeeks.slice(0, 5).forEach(week => {
+                            contextHTML += `<li>${this.formatDate(week.date)}: ${this.formatCurrency(week.value)}</li>`;
+                        });
+                        contextHTML += '</ul>';
+                    } else {
+                        contextHTML += `<p><strong>Similar Historical Weeks:</strong> Found ${results.similarWeeks.length} week${results.similarWeeks.length !== 1 ? 's' : ''} with similar performance (within 5%):</p><ul>`;
+                        results.similarWeeks.slice(0, 5).forEach(week => {
+                            contextHTML += `<li>${this.formatDate(week.date)} - ${this.formatCurrency(week.value)}</li>`;
+                        });
+                        contextHTML += '</ul>';
+                    }
+                }
+
+                container.innerHTML = contextHTML || (this.isBusinessMode ? '<p>No additional context available for this week.</p>' : '<p>No additional context available.</p>');
+            }
+
+            updatePercentileInfo(percentile, zScore, isPrediction) {
+                const container = document.getElementById('percentile-info');
+                if (!container) {
+                    console.error('Element with id "percentile-info" not found');
+                    return;
+                }
+                
+                const verb = isPrediction ? 'is expected to perform' : 'performed';
+                const tense = isPrediction ? 'will be' : 'was';
+                
+                const percentileText = this.isBusinessMode
+                    ? `<p>Your selected period ${verb} better than <strong>${percentile.toFixed(1)}%</strong> of all weeks in your data. This means it ${tense} ${percentile > 50 ? 'busier' : 'slower'} than most of your typical weeks.</p>`
+                    : `<p>The period mean ${isPrediction ? 'is predicted to fall' : 'falls'} at the <strong>${percentile.toFixed(1)}th percentile</strong> of the empirical distribution. With a z-score of ${zScore.toFixed(2)}, this represents ${zScore >= 0 ? 'above-average' : 'below-average'} performance relative to the historical mean.</p>`;
+
+                const note = isPrediction 
+                    ? `<p><small>Expected percentile ranking based on ${this.salesData.length} weeks of historical data</small></p>`
+                    : `<p><small>Percentile ranking based on ${this.salesData.length} weeks of historical data</small></p>`;
+
+                container.innerHTML = `
+                    ${percentileText}
+                    <div class="percentile-bar">
+                        <div class="percentile-fill" style="width: ${percentile}%"></div>
+                    </div>
+                    ${note}
+                `;
+            }
+
+            updateLanguageMode() {
+                if (window.languageToggle) {
+                    this.isBusinessMode = window.languageToggle.isBusinessMode;
+                }
+                
+                // Update stat labels (including showing/hiding Z-Score card)
+                this.updateStatLabels();
+                
+                // Update section description
+                const description = document.getElementById('analyzer-description');
+                if (description) {
+                    description.textContent = this.isBusinessMode
+                        ? "Select any date to see if that week was busy or slow compared to your restaurant's average performance."
+                        : "Select a date to analyze weekly performance metrics relative to the historical distribution and statistical parameters.";
+                }
+                
+                // Re-display last results if they exist
+                if (this.lastResults && this.lastSelectedDate) {
+                    this.displayResults(
+                        this.lastResults, 
+                        this.lastSelectedDate, 
+                        this.lastIsFutureDate, 
+                        this.lastMatchType, 
+                        this.lastWeekData
+                    );
+                }
+            }
+        }
         
         // Initialize the dashboard when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new DashboardApp();
             new ReportManager();
             window.languageToggle = new LanguageToggle();
+            window.weekAnalyzer = new WeekAnalyzer();
             
             // Initialize dynamic metrics dashboard
             setTimeout(() => {
@@ -3519,12 +4821,9 @@ Remember: Your growth is real, your patterns are predictable, and your future is
                     headerTitle.textContent = 'Time Series Analysis';
                 }
                 
+                // Keep description consistent to prevent layout shifts
                 if (headerDesc) {
-                    if (this.isBusinessMode) {
-                        headerDesc.textContent = '';
-                    } else {
-                        headerDesc.textContent = 'Advanced business intelligence dashboard for restaurant sales forecasting and strategic decision making';
-                    }
+                    headerDesc.textContent = 'Advanced business intelligence dashboard for restaurant sales forecasting and strategic decision making';
                 }
             }
             
