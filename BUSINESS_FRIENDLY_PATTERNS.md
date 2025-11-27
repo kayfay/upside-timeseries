@@ -1,6 +1,6 @@
 # Understanding Your Restaurant's Busy and Slow Seasons
 **Simple Guide to Seasonal Patterns**  
-**Analysis Date:** December 2024  
+**Analysis Date:** November 2024  
 
 ## 🎯 **What This Tells You**
 

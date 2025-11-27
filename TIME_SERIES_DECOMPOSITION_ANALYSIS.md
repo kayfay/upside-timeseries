@@ -1,6 +1,6 @@
 # Time Series Decomposition Analysis: Sales Data 2023-2025
-**Analysis Date:** December 2024  
-**Data Period:** July 2023 - July 2025  
+**Analysis Date:** November 2024  
+**Data Period:** May 2023 - May 2025  
 **Chart Reference:** `03_trend_adjusted_peaks.png`  
 **Analysis Type:** Time Series Decomposition with Trend Analysis
 

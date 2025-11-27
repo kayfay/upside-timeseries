@@ -1,6 +1,6 @@
 # Detrended Sales Intensity Heatmap Analysis: True Seasonal Patterns
-**Analysis Date:** December 2024  
-**Data Period:** July 2023 - July 2025  
+**Analysis Date:** November 2024  
+**Data Period:** May 2023 - May 2025  
 **Chart Reference:** Detrended Sales Intensity Heatmap by Week and Year  
 **Analysis Type:** Seasonal Pattern Analysis with Trend Removal
 

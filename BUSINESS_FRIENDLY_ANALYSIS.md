@@ -1,7 +1,7 @@
 # Restaurant Sales Analysis - Business Summary
 **What This Means for Your Business**  
-**Analysis Date:** December 2024  
-**Data Period:** July 2023 - July 2025  
+**Analysis Date:** November 2024  
+**Data Period:** May 2023 - May 2025  
 
 ## 🎯 **The Bottom Line**
 

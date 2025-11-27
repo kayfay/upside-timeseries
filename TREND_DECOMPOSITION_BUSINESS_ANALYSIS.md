@@ -1,6 +1,6 @@
 # Trend Decomposition Business Analysis: Advanced Restaurant Intelligence
-**Analysis Date:** December 2024  
-**Data Period:** July 2023 - July 2025  
+**Analysis Date:** November 2024  
+**Data Period:** May 2023 - May 2025  
 **Chart Reference:** `03_trend_adjusted_peaks.png` + `07_enhanced_business_insights_summary.png`  
 **Analysis Type:** Trend Decomposition with Business Intelligence Integration
 

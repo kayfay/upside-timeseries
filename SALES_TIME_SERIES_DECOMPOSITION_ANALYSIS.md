@@ -1,6 +1,6 @@
 # Sales Time Series Decomposition Analysis: Original vs Detrended Performance
-**Analysis Date:** December 2024  
-**Data Period:** July 2023 - July 2025  
+**Analysis Date:** November 2024  
+**Data Period:** May 2023 - May 2025  
 **Chart Reference:** Sales Time Series: Original vs Detrended  
 **Analysis Type:** Time Series Decomposition with Trend Analysis
 
