@@ -34,6 +34,21 @@ metrics <- list(
   is_stationary = stats$adf$p.value < 0.05
 )
 
+# 3b. Calculate Monthly Insights
+sales_monthly <- sales_weekly %>%
+  mutate(month_num = month(date), month_name = month(date, label = TRUE, abbr = TRUE)) %>%
+  group_by(month_num, month_name) %>%
+  summarise(avg_sales = mean(value), .groups = "drop") %>%
+  arrange(desc(avg_sales))
+
+best_month <- head(sales_monthly, 1)
+worst_month <- tail(sales_monthly, 1)
+
+metrics$monthly_insights <- list(
+  best_month = list(name = as.character(best_month$month_name), avg_sales = best_month$avg_sales),
+  worst_month = list(name = as.character(worst_month$month_name), avg_sales = worst_month$avg_sales)
+)
+
 # 4. Generate Dashboard
 generate_business_dashboard(metrics)
 

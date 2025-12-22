@@ -86,7 +86,8 @@ export_dashboard_json <- function(metrics, sales_weekly, output_path = "dashboar
             growth_rate = metrics$growth_rate,
             seasonal_strength = metrics$seasonal_strength,
             volatility = metrics$volatility,
-            is_stationary = metrics$is_stationary
+            is_stationary = metrics$is_stationary,
+            monthly_insights = metrics$monthly_insights
         ),
         time_series = sales_weekly %>%
             dplyr::mutate(date = as.character(date)) %>%
