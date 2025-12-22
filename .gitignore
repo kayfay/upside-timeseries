@@ -194,6 +194,7 @@ datasets/
 *.csv
 *.json
 !weekly_sales_data.json
+!dashboard_data.json
 *.parquet
 *.feather
 *.h5

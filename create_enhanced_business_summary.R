@@ -37,4 +37,8 @@ metrics <- list(
 # 4. Generate Dashboard
 generate_business_dashboard(metrics)
 
+# 5. Export Data for Web Frontend
+export_dashboard_json(metrics, sales_weekly)
+
 message("Business summary generated: 07_enhanced_business_insights_summary.png")
+message("Frontend data exported: dashboard_data.json")

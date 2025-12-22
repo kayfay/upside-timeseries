@@ -68,3 +68,36 @@ generate_business_dashboard <- function(metrics) {
 
     ggplot2::ggsave("07_enhanced_business_insights_summary.png", p, width = 10, height = 6)
 }
+
+#' Export dashboard data to JSON
+#' @param metrics List of calculated metrics
+#' @param sales_weekly Dataframe with weekly sales
+#' @param output_path Path to save JSON file
+export_dashboard_json <- function(metrics, sales_weekly, output_path = "dashboard_data.json") {
+    # Structure data for the frontend
+    payload <- list(
+        metadata = list(
+            generated_at = format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+            version = "1.0.0"
+        ),
+        metrics = list(
+            total_weeks = metrics$total_weeks,
+            avg_sales = metrics$avg_sales,
+            growth_rate = metrics$growth_rate,
+            seasonal_strength = metrics$seasonal_strength,
+            volatility = metrics$volatility,
+            is_stationary = metrics$is_stationary
+        ),
+        time_series = sales_weekly %>%
+            dplyr::mutate(date = as.character(date)) %>%
+            dplyr::select(date, value)
+    )
+
+    if (!requireNamespace("jsonlite", quietly = TRUE)) {
+        warning("jsonlite package is missing. Installing...")
+        utils::install.packages("jsonlite", repos = "https://cloud.r-project.org")
+    }
+
+    jsonlite::write_json(payload, output_path, pretty = TRUE, auto_unbox = TRUE)
+    message(sprintf("Dashboard data exported to %s", output_path))
+}
